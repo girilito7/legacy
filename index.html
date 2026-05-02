@@ -1912,11 +1912,13 @@
       align-items: center;
       padding: 1rem 0;
     }
+
     .org-tier {
       display: flex;
       flex-direction: column;
       align-items: center;
     }
+
     .org-tier-label {
       font-family: var(--font-mono);
       font-size: 10px;
@@ -1924,16 +1926,18 @@
       color: var(--gold);
       margin-bottom: 10px;
       padding: 4px 16px;
-      border: 1px solid rgba(201,168,76,0.25);
+      border: 1px solid rgba(201, 168, 76, 0.25);
       border-radius: 2px;
-      background: rgba(201,168,76,0.06);
+      background: rgba(201, 168, 76, 0.06);
     }
+
     .org-tier-nodes {
       display: flex;
       gap: 14px;
       justify-content: center;
       flex-wrap: wrap;
     }
+
     .org-node {
       background: var(--bg3);
       border: 1px solid var(--border2);
@@ -1944,36 +1948,67 @@
       cursor: default;
       min-width: 130px;
     }
+
     .org-node:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(201,168,76,0.15);
+      box-shadow: 0 8px 25px rgba(201, 168, 76, 0.15);
     }
+
     .org-node.org-n1 {
-      border-color: rgba(201,168,76,0.5);
-      background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(201,168,76,0.03));
+      border-color: rgba(201, 168, 76, 0.5);
+      background: linear-gradient(135deg, rgba(201, 168, 76, 0.12), rgba(201, 168, 76, 0.03));
     }
+
     .org-node.org-n1:hover {
       border-color: var(--gold);
-      box-shadow: 0 8px 30px rgba(201,168,76,0.25);
+      box-shadow: 0 8px 30px rgba(201, 168, 76, 0.25);
     }
+
     .org-node.org-n2 {
-      border-color: rgba(201,168,76,0.3);
-      background: linear-gradient(135deg, rgba(201,168,76,0.08), transparent);
+      border-color: rgba(201, 168, 76, 0.3);
+      background: linear-gradient(135deg, rgba(201, 168, 76, 0.08), transparent);
     }
-    .org-node.org-n2:hover { border-color: rgba(201,168,76,0.6); }
-    .org-node.org-n3 { border-color: rgba(150,150,150,0.3); }
-    .org-node.org-n3:hover { border-color: rgba(150,150,150,0.6); }
-    .org-node.org-n4 { border-color: rgba(100,120,180,0.3); }
-    .org-node.org-n4:hover { border-color: rgba(100,120,180,0.6); }
-    .org-node.org-n5 { border-color: rgba(80,160,100,0.3); }
-    .org-node.org-n5:hover { border-color: rgba(80,160,100,0.6); }
-    .org-icon { font-size: 22px; margin-bottom: 4px; }
+
+    .org-node.org-n2:hover {
+      border-color: rgba(201, 168, 76, 0.6);
+    }
+
+    .org-node.org-n3 {
+      border-color: rgba(150, 150, 150, 0.3);
+    }
+
+    .org-node.org-n3:hover {
+      border-color: rgba(150, 150, 150, 0.6);
+    }
+
+    .org-node.org-n4 {
+      border-color: rgba(100, 120, 180, 0.3);
+    }
+
+    .org-node.org-n4:hover {
+      border-color: rgba(100, 120, 180, 0.6);
+    }
+
+    .org-node.org-n5 {
+      border-color: rgba(80, 160, 100, 0.3);
+    }
+
+    .org-node.org-n5:hover {
+      border-color: rgba(80, 160, 100, 0.6);
+    }
+
+    .org-icon {
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+
     .org-name {
       font-family: var(--font-head);
       font-size: 16px;
       letter-spacing: 2px;
       color: var(--text);
     }
+
     .org-role {
       font-family: var(--font-mono);
       font-size: 9px;
@@ -1981,16 +2016,27 @@
       letter-spacing: 1px;
       margin-top: 3px;
     }
+
     .org-line-v {
       width: 2px;
       height: 22px;
-      background: linear-gradient(to bottom, rgba(201,168,76,0.4), rgba(201,168,76,0.1));
+      background: linear-gradient(to bottom, rgba(201, 168, 76, 0.4), rgba(201, 168, 76, 0.1));
       margin: 0 auto;
     }
+
     @media (max-width: 768px) {
-      .org-node { min-width: 100px; padding: 10px 16px; }
-      .org-name { font-size: 13px; }
-      .org-tier-nodes { gap: 8px; }
+      .org-node {
+        min-width: 100px;
+        padding: 10px 16px;
+      }
+
+      .org-name {
+        font-size: 13px;
+      }
+
+      .org-tier-nodes {
+        gap: 8px;
+      }
     }
 
     /* ====== PÁGINA RECRUTAMENTO SEPARADA ====== */
@@ -2000,6 +2046,7 @@
       max-width: 700px;
       margin: 0 auto;
     }
+
     .recruit-page-header h1 {
       font-family: var(--font-head);
       font-size: 42px;
@@ -2007,16 +2054,19 @@
       color: var(--gold);
       margin-bottom: 0.5rem;
     }
+
     .recruit-page-header p {
       font-size: 15px;
       color: var(--text2);
       line-height: 1.7;
     }
+
     .recruit-page-form {
       max-width: 650px;
       margin: 0 auto;
       padding: 0 2rem 4rem;
     }
+
     .recruit-cta-box {
       text-align: center;
       padding: 3rem 2rem;
@@ -2031,9 +2081,13 @@
       grid-template-columns: 1fr 1fr;
       gap: 1.5rem;
     }
+
     @media (max-width: 768px) {
-      .eval-grid { grid-template-columns: 1fr; }
+      .eval-grid {
+        grid-template-columns: 1fr;
+      }
     }
+
     .eval-card {
       background: var(--bg2);
       border: 1px solid var(--border2);
@@ -2041,38 +2095,47 @@
       padding: 1.5rem;
       transition: border-color 0.2s;
     }
-    .eval-card:hover { border-color: rgba(201,168,76,0.3); }
+
+    .eval-card:hover {
+      border-color: rgba(201, 168, 76, 0.3);
+    }
+
     .eval-card-head {
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
       margin-bottom: 0.75rem;
     }
+
     .eval-card-name {
       font-family: var(--font-head);
       font-size: 20px;
       letter-spacing: 2px;
       color: var(--text);
     }
+
     .eval-card-rank {
       font-family: var(--font-mono);
       font-size: 11px;
       color: var(--text3);
     }
+
     .eval-card-avg {
       font-family: var(--font-head);
       font-size: 24px;
       color: var(--gold);
       margin: 0.5rem 0;
     }
+
     .eval-actions {
       display: flex;
       gap: 8px;
       margin-top: 1rem;
     }
+
     .btn-promote {
-      background: rgba(76,175,80,0.15);
-      border: 1px solid rgba(76,175,80,0.4);
+      background: rgba(76, 175, 80, 0.15);
+      border: 1px solid rgba(76, 175, 80, 0.4);
       color: #81c784;
       padding: 8px 16px;
       border-radius: 3px;
@@ -2083,10 +2146,14 @@
       transition: all 0.2s;
       flex: 1;
     }
-    .btn-promote:hover { background: rgba(76,175,80,0.3); }
+
+    .btn-promote:hover {
+      background: rgba(76, 175, 80, 0.3);
+    }
+
     .btn-deny {
-      background: rgba(192,57,43,0.12);
-      border: 1px solid rgba(192,57,43,0.35);
+      background: rgba(192, 57, 43, 0.12);
+      border: 1px solid rgba(192, 57, 43, 0.35);
       color: #e57373;
       padding: 8px 16px;
       border-radius: 3px;
@@ -2097,7 +2164,11 @@
       transition: all 0.2s;
       flex: 1;
     }
-    .btn-deny:hover { background: rgba(192,57,43,0.25); }
+
+    .btn-deny:hover {
+      background: rgba(192, 57, 43, 0.25);
+    }
+
     .eval-status-badge {
       display: inline-block;
       font-family: var(--font-mono);
@@ -2106,21 +2177,25 @@
       padding: 3px 10px;
       border-radius: 2px;
     }
+
     .eval-status-badge.approved {
-      background: rgba(76,175,80,0.15);
-      border: 1px solid rgba(76,175,80,0.3);
+      background: rgba(76, 175, 80, 0.15);
+      border: 1px solid rgba(76, 175, 80, 0.3);
       color: #81c784;
     }
+
     .eval-status-badge.denied {
-      background: rgba(192,57,43,0.12);
-      border: 1px solid rgba(192,57,43,0.3);
+      background: rgba(192, 57, 43, 0.12);
+      border: 1px solid rgba(192, 57, 43, 0.3);
       color: #e57373;
     }
+
     .eval-status-badge.pending {
-      background: rgba(201,168,76,0.1);
-      border: 1px solid rgba(201,168,76,0.3);
+      background: rgba(201, 168, 76, 0.1);
+      border: 1px solid rgba(201, 168, 76, 0.3);
       color: var(--gold);
     }
+
     .eval-empty {
       text-align: center;
       padding: 3rem;
@@ -2129,6 +2204,7 @@
       color: var(--text3);
       letter-spacing: 1px;
     }
+
     .loading-spinner {
       text-align: center;
       padding: 2rem;
@@ -2167,7 +2243,7 @@
         <!-- ESQUERDA: TÍTULO -->
         <div>
           <div class="pub-hero-kicker">// SERVIDOR LEGACY — CORPORAÇÃO OFICIAL</div>
-          <div class="pub-hero-title">MILÍCIA<br><span>MILITAR</span><br>LEGACY</div>
+          <div class="pub-hero-title">POLÍCIA<br><span>MILITAR</span><br>LEGACY</div>
           <p class="pub-hero-desc">Servir e proteger é nossa missão. A PM Legacy mantém a ordem e a lei no servidor,
             garantindo uma experiência de roleplay justa e imersiva para todos os cidadãos.</p>
           <div
@@ -2303,62 +2379,106 @@
           <div class="org-tier">
             <div class="org-tier-label">OFICIAIS SUPERIORES</div>
             <div class="org-tier-nodes">
-              <div class="org-node org-n1"><div class="org-icon">⭐</div><div class="org-name">Coronel</div><div class="org-role">COMANDANTE-GERAL</div></div>
+              <div class="org-node org-n1">
+                <div class="org-icon">⭐</div>
+                <div class="org-name">Coronel</div>
+                <div class="org-role">COMANDANTE-GERAL</div>
+              </div>
             </div>
           </div>
           <div class="org-line-v"></div>
           <div class="org-tier">
             <div class="org-tier-nodes">
-              <div class="org-node org-n1"><div class="org-icon">⭐</div><div class="org-name">Ten.-Coronel</div><div class="org-role">SUBCOMANDANTE</div></div>
+              <div class="org-node org-n1">
+                <div class="org-icon">⭐</div>
+                <div class="org-name">Ten.-Coronel</div>
+                <div class="org-role">SUBCOMANDANTE</div>
+              </div>
             </div>
           </div>
           <div class="org-line-v"></div>
           <div class="org-tier">
             <div class="org-tier-nodes">
-              <div class="org-node org-n2"><div class="org-icon">🎖️</div><div class="org-name">Major</div><div class="org-role">CHEFE DE OPERAÇÕES</div></div>
+              <div class="org-node org-n2">
+                <div class="org-icon">🎖️</div>
+                <div class="org-name">Major</div>
+                <div class="org-role">CHEFE DE OPERAÇÕES</div>
+              </div>
             </div>
           </div>
           <div class="org-line-v"></div>
           <div class="org-tier">
             <div class="org-tier-label">OFICIAIS INTERMEDIÁRIOS</div>
             <div class="org-tier-nodes">
-              <div class="org-node org-n2"><div class="org-icon">🎖️</div><div class="org-name">Capitão</div><div class="org-role">CMDT. DE COMPANHIA</div></div>
+              <div class="org-node org-n2">
+                <div class="org-icon">🎖️</div>
+                <div class="org-name">Capitão</div>
+                <div class="org-role">CMDT. DE COMPANHIA</div>
+              </div>
             </div>
           </div>
           <div class="org-line-v"></div>
           <div class="org-tier">
             <div class="org-tier-label">OFICIAIS SUBALTERNOS</div>
             <div class="org-tier-nodes">
-              <div class="org-node org-n3"><div class="org-icon">🏅</div><div class="org-name">1° Tenente</div><div class="org-role">CMDT. PELOTÃO</div></div>
-              <div class="org-node org-n3"><div class="org-icon">🏅</div><div class="org-name">2° Tenente</div><div class="org-role">AUX. PELOTÃO</div></div>
+              <div class="org-node org-n3">
+                <div class="org-icon">🏅</div>
+                <div class="org-name">1° Tenente</div>
+                <div class="org-role">CMDT. PELOTÃO</div>
+              </div>
+              <div class="org-node org-n3">
+                <div class="org-icon">🏅</div>
+                <div class="org-name">2° Tenente</div>
+                <div class="org-role">AUX. PELOTÃO</div>
+              </div>
             </div>
           </div>
           <div class="org-line-v"></div>
           <div class="org-tier">
             <div class="org-tier-label">PRAÇAS ESPECIAIS</div>
             <div class="org-tier-nodes">
-              <div class="org-node org-n4"><div class="org-icon">🔰</div><div class="org-name">Subtenente</div><div class="org-role">AUX. DE OFICIAL</div></div>
+              <div class="org-node org-n4">
+                <div class="org-icon">🔰</div>
+                <div class="org-name">Subtenente</div>
+                <div class="org-role">AUX. DE OFICIAL</div>
+              </div>
             </div>
           </div>
           <div class="org-line-v"></div>
           <div class="org-tier">
             <div class="org-tier-label">PRAÇAS</div>
             <div class="org-tier-nodes">
-              <div class="org-node org-n4"><div class="org-icon">📌</div><div class="org-name">1° Sargento</div></div>
-              <div class="org-node org-n4"><div class="org-icon">📌</div><div class="org-name">2° Sargento</div></div>
-              <div class="org-node org-n4"><div class="org-icon">📌</div><div class="org-name">3° Sargento</div></div>
+              <div class="org-node org-n4">
+                <div class="org-icon">📌</div>
+                <div class="org-name">1° Sargento</div>
+              </div>
+              <div class="org-node org-n4">
+                <div class="org-icon">📌</div>
+                <div class="org-name">2° Sargento</div>
+              </div>
+              <div class="org-node org-n4">
+                <div class="org-icon">📌</div>
+                <div class="org-name">3° Sargento</div>
+              </div>
             </div>
           </div>
           <div class="org-line-v"></div>
           <div class="org-tier">
             <div class="org-tier-nodes">
-              <div class="org-node org-n5"><div class="org-icon">🔹</div><div class="org-name">Cabo</div></div>
+              <div class="org-node org-n5">
+                <div class="org-icon">🔹</div>
+                <div class="org-name">Cabo</div>
+              </div>
             </div>
           </div>
           <div class="org-line-v"></div>
           <div class="org-tier">
             <div class="org-tier-nodes">
-              <div class="org-node org-n5"><div class="org-icon">🔹</div><div class="org-name">Soldado</div><div class="org-role">BASE DA CORPORAÇÃO</div></div>
+              <div class="org-node org-n5">
+                <div class="org-icon">🔹</div>
+                <div class="org-name">Soldado</div>
+                <div class="org-role">BASE DA CORPORAÇÃO</div>
+              </div>
             </div>
           </div>
         </div>
@@ -2373,8 +2493,11 @@
         <div class="pub-divider"></div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center">
           <div>
-            <h3 style="font-family:var(--font-head);font-size:28px;letter-spacing:3px;color:var(--gold);margin-bottom:1rem">JUNTE-SE À PM LEGACY</h3>
-            <p style="font-size:15px;color:var(--text2);line-height:1.8;margin-bottom:1rem">A Polícia Militar do Legacy busca candidatos comprometidos com o roleplay de qualidade, disciplina e trabalho em equipe.</p>
+            <h3
+              style="font-family:var(--font-head);font-size:28px;letter-spacing:3px;color:var(--gold);margin-bottom:1rem">
+              JUNTE-SE À PM LEGACY</h3>
+            <p style="font-size:15px;color:var(--text2);line-height:1.8;margin-bottom:1rem">A Polícia Militar do Legacy
+              busca candidatos comprometidos com o roleplay de qualidade, disciplina e trabalho em equipe.</p>
             <ul class="req-list">
               <li>Ter no mínimo 13 anos de idade</li>
               <li>Conta ativa no servidor Legacy</li>
@@ -2386,8 +2509,11 @@
           </div>
           <div class="recruit-cta-box">
             <div style="font-size:64px;margin-bottom:1rem">🎖️</div>
-            <h3 style="font-family:var(--font-head);font-size:24px;letter-spacing:3px;color:var(--text);margin-bottom:1rem">QUER FAZER PARTE?</h3>
-            <p style="font-size:14px;color:var(--text2);margin-bottom:2rem;line-height:1.7">Preencha a ficha de candidatura. Sua inscrição será enviada diretamente ao Comando para análise.</p>
+            <h3
+              style="font-family:var(--font-head);font-size:24px;letter-spacing:3px;color:var(--text);margin-bottom:1rem">
+              QUER FAZER PARTE?</h3>
+            <p style="font-size:14px;color:var(--text2);margin-bottom:2rem;line-height:1.7">Preencha a ficha de
+              candidatura. Sua inscrição será enviada diretamente ao Comando para análise.</p>
             <button class="btn-pub-primary" onclick="showRecrutamentoPage()">CANDIDATAR-SE AGORA</button>
           </div>
         </div>
@@ -2510,7 +2636,8 @@
         <button class="nav-link" onclick="showPage('ranking')">Efetivo</button>
         <button class="nav-link" onclick="showPage('rules')">Regulamentos</button>
         <button class="nav-link" id="nav-reports" onclick="showPage('reports')" style="display:none">Relatórios</button>
-        <button class="nav-link" id="nav-evals" onclick="showPage('avaliacoes')" style="display:none">Avaliações</button>
+        <button class="nav-link" id="nav-evals" onclick="showPage('avaliacoes')"
+          style="display:none">Avaliações</button>
         <button class="nav-link admin-only" onclick="showPage('admin')" style="display:none">Admin</button>
       </div>
       <div class="nav-user">
@@ -2888,24 +3015,33 @@
         <h3>DADOS DO CANDIDATO</h3>
         <div id="recruit-form-fields">
           <div class="form-row">
-            <div class="field"><label>Nome do personagem</label><input type="text" id="f-nome" placeholder="Nome Sobrenome" /></div>
-            <div class="field"><label>Idade real</label><input type="number" id="f-idade" placeholder="Ex: 18" min="13" max="60" /></div>
+            <div class="field"><label>Nome do personagem</label><input type="text" id="f-nome"
+                placeholder="Nome Sobrenome" /></div>
+            <div class="field"><label>Idade real</label><input type="number" id="f-idade" placeholder="Ex: 18" min="13"
+                max="60" /></div>
           </div>
           <div class="form-row">
-            <div class="field"><label>Nick no servidor</label><input type="text" id="f-nick" placeholder="SeuNick" /></div>
-            <div class="field"><label>Discord</label><input type="text" id="f-discord" placeholder="usuario#0000" /></div>
+            <div class="field"><label>Nick no servidor</label><input type="text" id="f-nick" placeholder="SeuNick" />
+            </div>
+            <div class="field"><label>Discord</label><input type="text" id="f-discord" placeholder="usuario#0000" />
+            </div>
           </div>
-          <div class="field" style="margin-top:1rem"><label>Experiência com roleplay</label><textarea id="f-exp" placeholder="Descreva sua experiência com roleplay..."></textarea></div>
-          <div class="field"><label>Por que quer entrar na PM?</label><textarea id="f-motivo" placeholder="Explique sua motivação..."></textarea></div>
-          <div class="field"><label>Disponibilidade de horário</label><input type="text" id="f-horario" placeholder="Ex: Noite e fins de semana" /></div>
+          <div class="field" style="margin-top:1rem"><label>Experiência com roleplay</label><textarea id="f-exp"
+              placeholder="Descreva sua experiência com roleplay..."></textarea></div>
+          <div class="field"><label>Por que quer entrar na PM?</label><textarea id="f-motivo"
+              placeholder="Explique sua motivação..."></textarea></div>
+          <div class="field"><label>Disponibilidade de horário</label><input type="text" id="f-horario"
+              placeholder="Ex: Noite e fins de semana" /></div>
           <button class="btn-primary" style="margin-top:1rem" onclick="submitCandidatura()">ENVIAR CANDIDATURA</button>
         </div>
         <div class="form-success" id="recruit-form-success" style="display:none">
-          <p>✔ CANDIDATURA ENVIADA COM SUCESSO<br><br>Sua ficha foi salva no sistema.<br>O Comando irá analisar e entrar em contato.<br><br>Aguarde.</p>
+          <p>✔ CANDIDATURA ENVIADA COM SUCESSO<br><br>Sua ficha foi salva no sistema.<br>O Comando irá analisar e entrar
+            em contato.<br><br>Aguarde.</p>
         </div>
       </div>
       <div style="text-align:center;margin-top:1.5rem">
-        <button class="btn-secondary" onclick="backToPublic()" style="padding:10px 24px">← VOLTAR À PÁGINA INICIAL</button>
+        <button class="btn-secondary" onclick="backToPublic()" style="padding:10px 24px">← VOLTAR À PÁGINA
+          INICIAL</button>
       </div>
     </div>
   </div>
@@ -2922,7 +3058,9 @@
         <button class="report-tab active" id="eval-tab-pending" onclick="setEvalTab('pending',this)">Pendentes</button>
         <button class="report-tab" id="eval-tab-history" onclick="setEvalTab('history',this)">Histórico</button>
       </div>
-      <div id="eval-content"><div class="loading-spinner">Carregando avaliações...</div></div>
+      <div id="eval-content">
+        <div class="loading-spinner">Carregando avaliações...</div>
+      </div>
     </div>
   </div>
 
@@ -2954,9 +3092,15 @@
       </div>
       <!-- CANDIDATURAS -->
       <div style="margin-bottom:2rem">
-        <h3 style="font-family:var(--font-head);font-size:20px;letter-spacing:2px;color:var(--text2);margin-bottom:1rem">CANDIDATURAS DE RECRUTAMENTO</h3>
-        <div id="candidaturas-list"><div class="loading-spinner">Carregando candidaturas...</div></div>
-        <div id="no-candidaturas" style="font-family:var(--font-mono);font-size:13px;color:var(--text3);padding:1.5rem 0;display:none">Nenhuma candidatura pendente.</div>
+        <h3
+          style="font-family:var(--font-head);font-size:20px;letter-spacing:2px;color:var(--text2);margin-bottom:1rem">
+          CANDIDATURAS DE RECRUTAMENTO</h3>
+        <div id="candidaturas-list">
+          <div class="loading-spinner">Carregando candidaturas...</div>
+        </div>
+        <div id="no-candidaturas"
+          style="font-family:var(--font-mono);font-size:13px;color:var(--text3);padding:1.5rem 0;display:none">Nenhuma
+          candidatura pendente.</div>
       </div>
 
       <div style="margin-top:2rem">
