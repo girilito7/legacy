@@ -1117,6 +1117,32 @@
       margin-bottom: 1.5rem;
     }
 
+    .report-group {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border2);
+      border-radius: 4px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .report-group-title {
+      font-family: var(--font-head);
+      font-size: 14px;
+      color: var(--text2);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .report-group-title::before {
+      content: '';
+      display: block;
+      width: 3px;
+      height: 14px;
+      background: var(--gold);
+    }
+
     .score-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1137,6 +1163,17 @@
     .stars {
       display: flex;
       gap: 4px;
+      align-items: center;
+    }
+
+    .star-legend {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 1px;
+      color: var(--text3);
+      margin-left: 0.5rem;
+      text-transform: uppercase;
+      min-width: 140px;
     }
 
     .star {
@@ -1154,14 +1191,76 @@
       color: var(--text3);
     }
 
+    .star.hovered {
+      border-color: rgba(201, 168, 76, 0.5);
+      color: rgba(201, 168, 76, 0.8);
+      background: rgba(201, 168, 76, 0.1);
+    }
+
     .star.active {
       background: rgba(201, 168, 76, 0.2);
       border-color: var(--gold);
       color: var(--gold);
+      text-shadow: 0 0 5px rgba(201, 168, 76, 0.4);
     }
 
-    .star:hover {
-      border-color: rgba(201, 168, 76, 0.5);
+    .radio-card-group {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .radio-card-label {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: var(--bg3);
+      border: 1px solid var(--border2);
+      border-radius: 4px;
+      padding: 1rem 0.5rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      text-align: center;
+    }
+
+    .radio-card-label:hover {
+      border-color: var(--border);
+    }
+
+    .radio-card-label .rc-icon {
+      font-size: 20px;
+      color: var(--text3);
+      transition: all 0.2s;
+    }
+
+    .radio-card-label .rc-title {
+      font-family: var(--font-head);
+      font-size: 12px;
+      letter-spacing: 1px;
+      color: var(--text);
+      transition: all 0.2s;
+    }
+
+    input[type="radio"]:checked + .radio-card-label {
+      border-color: var(--gold);
+      background: rgba(201, 168, 76, 0.05);
+    }
+
+    input[type="radio"]:checked + .radio-card-label .rc-icon,
+    input[type="radio"]:checked + .radio-card-label .rc-title {
+      color: var(--gold);
+    }
+
+    input[type="radio"].rc-reavaliar:checked + .radio-card-label {
+      border-color: var(--red);
+      background: rgba(192, 57, 43, 0.05);
+    }
+
+    input[type="radio"].rc-reavaliar:checked + .radio-card-label .rc-icon,
+    input[type="radio"].rc-reavaliar:checked + .radio-card-label .rc-title {
+      color: var(--red);
     }
 
     .report-no-perms {
@@ -2213,6 +2312,199 @@
       color: var(--text3);
       letter-spacing: 1px;
     }
+
+    /* SIDEBAR */
+    .home-layout { display: grid; grid-template-columns: 250px 1fr; min-height: calc(100vh - 60px); }
+    .sidebar, .pub-sidebar { background: var(--bg2); border-right: 1px solid var(--border2); padding: 1.5rem 0; position: sticky; top: 60px; height: calc(100vh - 60px); overflow-y: auto; }
+    .pub-layout { display: grid; grid-template-columns: 220px 1fr; min-height: 100vh; }
+    .pub-sidebar { top: 60px; padding-top: 2rem; }
+    .pub-main { overflow-x: hidden; }
+    .sidebar { background: var(--bg2); border-right: 1px solid var(--border2); padding: 1.5rem 0; position: sticky; top: 60px; height: calc(100vh - 60px); overflow-y: auto; }
+    .sidebar-section { padding: 0 1rem; margin-bottom: 1.5rem; }
+    .sidebar-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 3px; color: var(--text3); padding: 0 0.75rem; margin-bottom: 0.5rem; text-transform: uppercase; }
+    .sidebar-link { display: flex; align-items: center; gap: 10px; padding: 10px 0.75rem; border-radius: 4px; font-family: var(--font-body); font-size: 14px; font-weight: 600; color: var(--text2); cursor: pointer; transition: all 0.2s; border: 1px solid transparent; }
+    .sidebar-link:hover { background: rgba(201,168,76,0.05); color: var(--text); }
+    .sidebar-link.active { background: rgba(201,168,76,0.08); border-color: rgba(201,168,76,0.2); color: var(--gold); }
+    .sidebar-icon { font-size: 18px; width: 24px; text-align: center; flex-shrink: 0; }
+    .sidebar-divider { height: 1px; background: var(--border); margin: 1rem 1rem; }
+    .home-main { overflow-y: auto; }
+
+    /* PERFIL */
+    .perfil-container { max-width: 700px; margin: 0 auto; padding: 3rem 2rem; }
+    .perfil-card { background: var(--bg2); border: 1px solid var(--border2); border-radius: 6px; overflow: hidden; }
+    .perfil-header { background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(201,168,76,0.03)); border-bottom: 1px solid rgba(201,168,76,0.2); padding: 2rem; text-align: center; }
+    .perfil-avatar { width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--gold); margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 36px; background: rgba(201,168,76,0.1); }
+    .perfil-nome { font-family: var(--font-head); font-size: 28px; letter-spacing: 3px; color: var(--text); }
+    .perfil-patente-badge { display: inline-block; margin-top: 0.5rem; padding: 4px 16px; border-radius: 3px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 2px; }
+    .perfil-body { padding: 2rem; }
+    .perfil-info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .perfil-info-item { background: var(--bg3); border: 1px solid var(--border); border-radius: 4px; padding: 1rem; }
+    .perfil-info-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 2px; color: var(--text3); margin-bottom: 6px; text-transform: uppercase; }
+    .perfil-info-value { font-family: var(--font-head); font-size: 18px; letter-spacing: 1px; color: var(--text); }
+    .perfil-section-title { font-family: var(--font-mono); font-size: 11px; letter-spacing: 3px; color: var(--gold); margin: 1.5rem 0 1rem; text-transform: uppercase; }
+    .perfil-empty-notice { background: var(--bg3); border: 1px dashed var(--border2); border-radius: 4px; padding: 1.25rem; text-align: center; font-family: var(--font-mono); font-size: 12px; color: var(--text3); letter-spacing: 1px; }
+
+    /* CORREGEDORIA */
+    .corregedoria-grid { display: flex; flex-direction: column; gap: 1.25rem; }
+    .denuncia-card {
+      background: var(--bg2);
+      border: 1px solid var(--border2);
+      border-radius: 6px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+    }
+    .denuncia-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; bottom: 0;
+      width: 4px;
+      background: var(--gold);
+      border-radius: 6px 0 0 6px;
+    }
+    .denuncia-card.priority-alta::before { background: #e53935; }
+    .denuncia-card.priority-media::before { background: #ffb300; }
+    .denuncia-card.priority-baixa::before { background: #43a047; }
+    .denuncia-card:hover {
+      border-color: rgba(201,168,76,0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.4), 0 0 0 1px rgba(201,168,76,0.1);
+    }
+    .dc-header { display: flex; justify-content: space-between; align-items: flex-start; padding: 1.25rem 1.5rem 0.75rem; }
+    .dc-accused { }
+    .dc-accused-name { font-family: var(--font-head); font-size: 22px; letter-spacing: 3px; color: var(--text); text-transform: uppercase; }
+    .dc-accused-rank { font-family: var(--font-mono); font-size: 11px; color: var(--text3); letter-spacing: 1px; margin-top: 2px; }
+    .dc-badges { display: flex; gap: 6px; flex-wrap: wrap; align-items: flex-start; }
+    .dc-badge {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: 1px;
+      padding: 4px 10px; border-radius: 3px; white-space: nowrap;
+    }
+    .dc-badge.status-pendente { background: rgba(255,179,0,0.12); border: 1px solid rgba(255,179,0,0.35); color: #ffb300; }
+    .dc-badge.status-em-analise { background: rgba(255,179,0,0.12); border: 1px solid rgba(255,179,0,0.35); color: #ffb300; }
+    .dc-badge.status-concluida { background: rgba(67,160,71,0.12); border: 1px solid rgba(67,160,71,0.35); color: #66bb6a; }
+    .dc-badge.status-arquivada { background: rgba(120,120,120,0.12); border: 1px solid rgba(120,120,120,0.35); color: #999; }
+    .dc-badge.tipo-badge { background: rgba(229,57,53,0.1); border: 1px solid rgba(229,57,53,0.3); color: #ef5350; }
+    .dc-badge.priority-badge-alta { background: rgba(229,57,53,0.12); border: 1px solid rgba(229,57,53,0.3); color: #ef5350; }
+    .dc-badge.priority-badge-media { background: rgba(255,179,0,0.12); border: 1px solid rgba(255,179,0,0.3); color: #ffb300; }
+    .dc-badge.priority-badge-baixa { background: rgba(67,160,71,0.12); border: 1px solid rgba(67,160,71,0.3); color: #66bb6a; }
+    .dc-desc-box {
+      margin: 0 1.5rem;
+      padding: 1rem 1.25rem;
+      background: rgba(0,0,0,0.25);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+    .dc-desc-title { font-family: var(--font-mono); font-size: 9px; letter-spacing: 2px; color: var(--text3); margin-bottom: 6px; text-transform: uppercase; }
+    .dc-desc-text { font-size: 13px; color: var(--text2); line-height: 1.7; }
+    .dc-footer { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.5rem 1.25rem; margin-top: 0.5rem; }
+    .dc-meta { display: flex; gap: 1.25rem; }
+    .dc-meta-item { display: flex; align-items: center; gap: 5px; font-family: var(--font-mono); font-size: 10px; color: var(--text3); letter-spacing: 1px; }
+    .dc-meta-icon { font-size: 13px; opacity: 0.7; }
+    .dc-actions { display: flex; gap: 6px; }
+    .dc-btn {
+      padding: 6px 14px;
+      border-radius: 3px;
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.2s;
+      border: 1px solid;
+      background: transparent;
+    }
+    .dc-btn:hover { transform: translateY(-1px); }
+    .dc-btn.btn-analisar { border-color: rgba(255,179,0,0.4); color: #ffb300; }
+    .dc-btn.btn-analisar:hover { background: rgba(255,179,0,0.12); }
+    .dc-btn.btn-concluir { border-color: rgba(67,160,71,0.4); color: #66bb6a; }
+    .dc-btn.btn-concluir:hover { background: rgba(67,160,71,0.12); }
+    .dc-btn.btn-arquivar { border-color: rgba(120,120,120,0.4); color: #999; }
+    .dc-btn.btn-arquivar:hover { background: rgba(120,120,120,0.12); }
+    .dc-btn.btn-punir { border-color: rgba(229,57,53,0.4); color: #ef5350; }
+    .dc-btn.btn-punir:hover { background: rgba(229,57,53,0.12); }
+    .dc-separator { height: 1px; background: var(--border); margin: 0 1.5rem; }
+
+    /* DENUNCIA DETAIL MODAL */
+    .denuncia-detail-modal { max-width: 650px; }
+    .dd-field { margin-bottom: 1rem; }
+    .dd-label { font-family: var(--font-mono); font-size: 9px; letter-spacing: 2px; color: var(--text3); margin-bottom: 4px; text-transform: uppercase; }
+    .dd-value { font-size: 14px; color: var(--text2); line-height: 1.6; }
+    .dd-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    @media (max-width: 768px) {
+      .corregedoria-grid { gap: 1rem; }
+      .dc-header { flex-direction: column; gap: 0.75rem; }
+      .dc-footer { flex-direction: column; gap: 0.75rem; align-items: flex-start; }
+      .dd-grid { grid-template-columns: 1fr; }
+    }
+
+    /* CURSOS PLACEHOLDER */
+    .cursos-placeholder { text-align: center; padding: 5rem 2rem; }
+    .cursos-placeholder-icon { font-size: 64px; margin-bottom: 1.5rem; }
+    .cursos-placeholder h3 { font-family: var(--font-head); font-size: 28px; letter-spacing: 4px; color: var(--gold); margin-bottom: 0.75rem; }
+    .cursos-placeholder p { font-family: var(--font-mono); font-size: 13px; color: var(--text3); letter-spacing: 1px; line-height: 1.8; max-width: 500px; margin: 0 auto; }
+
+    @media (max-width: 768px) {
+      .pub-layout { grid-template-columns: 1fr; }
+      .pub-sidebar { display: none; }
+      .sidebar { display: none; }
+      .corregedoria-grid { grid-template-columns: 1fr; }
+      .perfil-info-grid { grid-template-columns: 1fr; }
+    }
+    /* MULTI-STEP RECRUIT FORM */
+    .ms-progress { display: flex; align-items: center; justify-content: center; margin-bottom: 2rem; position: relative; }
+    .ms-progress::before { content: ''; position: absolute; top: 50%; left: 10%; right: 10%; height: 2px; background: var(--border2); z-index: 0; transform: translateY(-50%); }
+    .ms-step-dot { width: 32px; height: 32px; border-radius: 50%; background: var(--bg3); border: 2px solid var(--border2); color: var(--text3); display: flex; align-items: center; justify-content: center; font-family: var(--font-head); font-size: 14px; position: relative; z-index: 1; transition: all 0.3s ease; }
+    .ms-step-dot.active { background: rgba(201,168,76,0.1); border-color: var(--gold); color: var(--gold); box-shadow: 0 0 15px rgba(201,168,76,0.2); }
+    .ms-step-dot.completed { background: var(--gold); border-color: var(--gold); color: #000; }
+    .ms-spacer { flex: 1; }
+    .ms-step-wrapper { display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 1; }
+    .ms-step-label { font-family: var(--font-mono); font-size: 10px; color: var(--text3); letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s ease; }
+    .ms-step-dot.active ~ .ms-step-label { color: var(--gold); }
+    .ms-step { display: none; animation: fadeIn 0.4s ease forwards; }
+    .ms-step.active { display: block; }
+    .ms-actions { display: flex; justify-content: space-between; margin-top: 2rem; border-top: 1px solid var(--border2); padding-top: 1.5rem; }
+    
+    .checkbox-group { display: flex; flex-direction: column; gap: 12px; margin-top: 1rem; }
+    .checkbox-label { display: flex; align-items: flex-start; gap: 10px; cursor: pointer; color: var(--text2); font-size: 14px; line-height: 1.5; }
+    .checkbox-label input { margin-top: 4px; accent-color: var(--gold); transform: scale(1.1); }
+    .checkbox-label:hover { color: var(--text); }
+
+    /* DASHBOARD LAYOUT */
+    .dashboard-grid { display: grid; grid-template-columns: 1fr 320px; gap: 1.5rem; align-items: start; }
+    @media (max-width: 900px) { .dashboard-grid { grid-template-columns: 1fr; } }
+    .dash-summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+    .dash-card { background: var(--bg2); border: 1px solid var(--border2); border-radius: 6px; padding: 1.25rem; transition: transform 0.2s, box-shadow 0.2s; position: relative; overflow: hidden; }
+    .dash-card:hover { transform: translateY(-3px); box-shadow: 0 4px 15px rgba(0,0,0,0.3); border-color: rgba(201,168,76,0.3); }
+    .dash-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--gold); opacity: 0; transition: opacity 0.3s; }
+    .dash-card:hover::before { opacity: 1; }
+    .dash-title { font-family: var(--font-mono); font-size: 10px; color: var(--text3); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem; }
+    .dash-value { font-family: var(--font-head); font-size: 32px; color: var(--text); }
+    .dash-value span { font-size: 14px; color: var(--gold); margin-left: 5px; }
+
+    /* COMUNICADOS CARD */
+    .comunicado-list { display: flex; flex-direction: column; gap: 1rem; }
+    .comunicado-item { background: var(--bg3); border: 1px solid var(--border2); border-left: 3px solid var(--gold); border-radius: 4px; padding: 1rem; }
+    .comunicado-title { font-size: 15px; color: var(--text); margin-bottom: 5px; font-weight: 500; }
+    .comunicado-meta { font-family: var(--font-mono); font-size: 10px; color: var(--text3); margin-bottom: 10px; }
+    .comunicado-body { font-size: 13px; color: var(--text2); line-height: 1.6; white-space: pre-wrap; }
+
+    /* PATENTE CARD E INSIGNIAS */
+    .patente-card { text-align: center; padding: 2rem 1.5rem; }
+    .patente-icon { width: 80px; height: 100px; margin: 0 auto 1rem auto; filter: drop-shadow(0 0 10px rgba(201,168,76,0.2)); transition: transform 0.3s ease; }
+    .patente-icon:hover { transform: scale(1.05) translateY(-2px); filter: drop-shadow(0 0 15px rgba(201,168,76,0.4)); }
+    .patente-icon svg { width: 100%; height: 100%; }
+    .insignia-sm { width: 20px; height: 26px; display: inline-block; vertical-align: middle; filter: drop-shadow(0 0 2px rgba(0,0,0,0.5)); }
+    .insignia-sm svg { width: 100%; height: 100%; }
+    .insignia-md { width: 30px; height: 40px; display: inline-block; vertical-align: middle; filter: drop-shadow(0 0 4px rgba(0,0,0,0.5)); }
+    .insignia-md svg { width: 100%; height: 100%; }
+    .patente-name { font-family: var(--font-head); font-size: 24px; color: var(--gold); letter-spacing: 2px; margin-bottom: 0.25rem; }
+    .patente-nick { font-family: var(--font-mono); font-size: 14px; color: var(--text2); margin-bottom: 1.5rem; }
+    .patente-details { border-top: 1px solid var(--border2); padding-top: 1.5rem; text-align: left; }
+    .patente-detail-item { margin-bottom: 1rem; }
+    .patente-detail-label { font-family: var(--font-mono); font-size: 9px; color: var(--text3); letter-spacing: 1px; text-transform: uppercase; margin-bottom: 4px; }
+    .patente-detail-value { font-size: 14px; color: var(--text); }
   </style>
 </head>
 
@@ -2232,6 +2524,43 @@
         </div>
       </div>
     </nav>
+
+    <!-- PUBLIC LAYOUT WITH SIDEBAR -->
+    <div class="pub-layout">
+      <aside class="pub-sidebar">
+        <div class="sidebar-section">
+          <div class="sidebar-label">NAVEGAÇÃO</div>
+          <a class="sidebar-link active" href="#" onclick="scrollToPubSection('top');return false">
+            <span class="sidebar-icon">🏠</span> Início
+          </a>
+          <a class="sidebar-link" href="#sec-missao" onclick="scrollToPubSection('sec-missao');return false">
+            <span class="sidebar-icon">🎯</span> Missão
+          </a>
+          <a class="sidebar-link" href="#sec-hierarquia" onclick="scrollToPubSection('sec-hierarquia');return false">
+            <span class="sidebar-icon">🎖️</span> Hierarquia
+          </a>
+          <a class="sidebar-link" href="#sec-recrutamento" onclick="scrollToPubSection('sec-recrutamento');return false">
+            <span class="sidebar-icon">📋</span> Recrutamento
+          </a>
+          <a class="sidebar-link" href="#sec-corregedoria" onclick="scrollToPubSection('sec-corregedoria');return false">
+            <span class="sidebar-icon">🏛️</span> Corregedoria
+          </a>
+          <a class="sidebar-link" href="#sec-regras" onclick="scrollToPubSection('sec-regras');return false">
+            <span class="sidebar-icon">⚖️</span> Regras
+          </a>
+        </div>
+        <div class="sidebar-divider"></div>
+        <div class="sidebar-section">
+          <div class="sidebar-label">ACESSO</div>
+          <div class="sidebar-link" onclick="openAuthModal('login')">
+            <span class="sidebar-icon">🔒</span> Entrar
+          </div>
+          <div class="sidebar-link" onclick="openAuthModal('register')">
+            <span class="sidebar-icon">✍️</span> Criar Conta
+          </div>
+        </div>
+      </aside>
+      <div class="pub-main">
 
     <!-- HERO + BOLETIM LADO A LADO -->
     <div class="pub-hero">
@@ -2320,7 +2649,7 @@
     </div>
 
     <!-- MISSÃO E VALORES -->
-    <div class="pub-section">
+    <div id="sec-missao" class="pub-section">
       <div class="pub-section-title">MISSÃO & <span>VALORES</span></div>
       <div class="pub-section-sub">// O QUE NOS MOVE</div>
       <div class="pub-divider"></div>
@@ -2370,7 +2699,7 @@
     </div>
 
     <!-- HIERARQUIA — ORGANOGRAMA -->
-    <div style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div id="sec-hierarquia" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
       <div class="pub-section">
         <div class="pub-section-title">HIERARQUIA <span>MILITAR</span></div>
         <div class="pub-section-sub">// ESTRUTURA DE COMANDO</div>
@@ -2499,8 +2828,8 @@
             <p style="font-size:15px;color:var(--text2);line-height:1.8;margin-bottom:1rem">A Polícia Militar do Legacy
               busca candidatos comprometidos com o roleplay de qualidade, disciplina e trabalho em equipe.</p>
             <ul class="req-list">
-              <li>Ter no mínimo 13 anos de idade</li>
-              <li>Conta ativa no servidor Legacy</li>
+              <li>Ter no mínimo 16 anos de idade</li>
+              <li>Respeito à hierarquia</li>
               <li>Conhecimento básico de roleplay</li>
               <li>Disponibilidade para treinamentos</li>
               <li>Microfone funcional</li>
@@ -2520,8 +2849,35 @@
       </div>
     </div>
 
+    <!-- CORREGEDORIA PÚBLICA -->
+    <div id="sec-corregedoria">
+      <div class="pub-section">
+        <div class="pub-section-title">CORREGEDORIA</div>
+        <div class="pub-section-sub">// OUVIDORIA E DENÚNCIAS</div>
+        <div class="pub-divider"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center">
+          <div>
+            <h3 style="font-family:var(--font-head);font-size:28px;letter-spacing:3px;color:var(--gold);margin-bottom:1rem">CANAL DE DENÚNCIAS</h3>
+            <p style="font-size:15px;color:var(--text2);line-height:1.8;margin-bottom:1rem">A Corregedoria da PM Legacy é o órgão responsável por apurar condutas irregulares dos policiais. Aqui você pode registrar denúncias de forma segura.</p>
+            <ul class="req-list">
+              <li>Denúncias são analisadas pelo Comando</li>
+              <li>Você pode denunciar de forma anônima</li>
+              <li>Todas as denúncias são tratadas com sigilo</li>
+              <li>Medidas disciplinares serão aplicadas quando necessário</li>
+            </ul>
+          </div>
+          <div class="recruit-cta-box">
+            <div style="font-size:64px;margin-bottom:1rem">🏛️</div>
+            <h3 style="font-family:var(--font-head);font-size:24px;letter-spacing:3px;color:var(--text);margin-bottom:1rem">REGISTRAR DENÚNCIA</h3>
+            <p style="font-size:14px;color:var(--text2);margin-bottom:2rem;line-height:1.7">Preencha o formulário de denúncia. Sua solicitação será enviada diretamente à Corregedoria para análise.</p>
+            <button class="btn-pub-primary" onclick="showDenunciaPage()">FAZER DENÚNCIA</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- REGRAS GERAIS -->
-    <div style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+    <div id="sec-regras" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
       <div class="pub-section">
         <div class="pub-section-title">REGRAS <span>GERAIS</span></div>
         <div class="pub-section-sub">// NORMAS DE CONDUTA DO SERVIDOR</div>
@@ -2561,17 +2917,11 @@
       </div>
     </div>
 
-    <!-- CTA FINAL -->
-    <div class="pub-cta">
-      <h2>PRONTO PARA <span>SERVIR?</span></h2>
-      <p>Junte-se à Polícia Militar do Legacy e faça parte de uma das corporações mais respeitadas do servidor.</p>
-      <div class="pub-cta-btns">
-        <button class="btn-pub-primary" onclick="openAuthModal('register')">CRIAR CONTA AGORA</button>
-        <button class="btn-pub-secondary" onclick="openAuthModal('login')">JÁ TENHO CONTA</button>
-      </div>
-    </div>
+
 
     <div class="pub-footer">PM LEGACY — PORTAL OFICIAL — SERVIDOR LEGACY — TODOS OS DIREITOS RESERVADOS</div>
+      </div><!-- /pub-main -->
+    </div><!-- /pub-layout -->
   </div>
 
   <!-- MODAL DE AUTENTICAÇÃO -->
@@ -2628,27 +2978,26 @@
   <!-- NAVBAR (hidden until logged in) -->
   <nav id="navbar" style="display:none">
     <div class="nav-inner">
-      <div class="nav-logo" onclick="showPage('home')">
+      <div class="nav-logo" onclick="showPage('perfil')">
         ★ <div><span>// PORTAL OFICIAL</span>PM LEGACY</div>
       </div>
       <div class="nav-links">
-        <button class="nav-link active" onclick="showPage('home')">Início</button>
+        <button class="nav-link active" onclick="showPage('perfil')">Área Policial</button>
         <button class="nav-link" onclick="showPage('ranking')">Efetivo</button>
         <button class="nav-link" onclick="showPage('rules')">Regulamentos</button>
         <button class="nav-link" id="nav-reports" onclick="showPage('reports')" style="display:none">Relatórios</button>
         <button class="nav-link" id="nav-evals" onclick="showPage('avaliacoes')"
           style="display:none">Avaliações</button>
+        <button class="nav-link" id="nav-corregedoria" onclick="showPage('corregedoria')">Corregedoria</button>
+        <button class="nav-link" onclick="showPage('cursos')">Cursos</button>
         <button class="nav-link admin-only" onclick="showPage('admin')" style="display:none">Admin</button>
       </div>
       <div class="nav-user">
-        <span id="nav-username" style="color:var(--text2)"></span>
-        <span class="nav-badge" id="nav-rank"></span>
         <button class="btn-logout" onclick="doLogout()">SAIR</button>
       </div>
     </div>
   </nav>
 
-  <!-- HOME PAGE -->
   <div id="page-home" class="page">
 
     <!-- HERO + BOLETIM -->
@@ -2925,50 +3274,79 @@
                   <option value="">Selecione...</option>
                 </select>
               </div>
-              <div class="score-row" style="margin-top:1.25rem">
-                <div class="score-field">
-                  <label>Desempenho geral</label>
-                  <div class="stars" id="stars-desempenho" data-field="desempenho"></div>
-                </div>
-                <div class="score-field">
-                  <label>Presença / Assiduidade</label>
-                  <div class="stars" id="stars-presenca" data-field="presenca"></div>
-                </div>
-              </div>
-              <div class="score-row">
-                <div class="score-field">
-                  <label>Conduta e disciplina</label>
-                  <div class="stars" id="stars-conduta" data-field="conduta"></div>
-                </div>
-                <div class="score-field">
-                  <label>Trabalho em equipe</label>
-                  <div class="stars" id="stars-equipe" data-field="equipe"></div>
+              <div class="report-group" style="margin-top:1.5rem; margin-bottom:1.5rem">
+                <div class="report-group-title">Desempenho profissional</div>
+                <div class="score-row">
+                  <div class="score-field">
+                    <label>Técnico</label>
+                    <div class="stars" id="stars-tecnico" data-field="tecnico"></div>
+                  </div>
+                  <div class="score-field">
+                    <label>Iniciativa</label>
+                    <div class="stars" id="stars-iniciativa" data-field="iniciativa"></div>
+                  </div>
                 </div>
               </div>
-              <div class="score-row">
-                <div class="score-field">
-                  <label>Conhecimento técnico</label>
-                  <div class="stars" id="stars-tecnico" data-field="tecnico"></div>
-                </div>
-                <div class="score-field">
-                  <label>Iniciativa</label>
-                  <div class="stars" id="stars-iniciativa" data-field="iniciativa"></div>
+
+              <div class="report-group" style="margin-bottom:1.5rem">
+                <div class="report-group-title">Disciplina</div>
+                <div class="score-row">
+                  <div class="score-field">
+                    <label>Conduta</label>
+                    <div class="stars" id="stars-conduta" data-field="conduta"></div>
+                  </div>
+                  <div class="score-field">
+                    <label>Presença</label>
+                    <div class="stars" id="stars-presenca" data-field="presenca"></div>
+                  </div>
                 </div>
               </div>
-              <div class="field" style="margin-top:0.5rem">
-                <label>Observações gerais</label>
-                <textarea id="r-obs" placeholder="Descreva pontos positivos, negativos e recomendações..."
-                  style="width:100%;background:var(--bg3);border:1px solid var(--border2);border-radius:3px;padding:10px 14px;color:var(--text);font-family:var(--font-mono);font-size:13px;outline:none;resize:vertical;min-height:90px;"></textarea>
+
+              <div class="report-group" style="margin-bottom:1.5rem">
+                <div class="report-group-title">Relacionamento</div>
+                <div class="score-row">
+                  <div class="score-field">
+                    <label>Trabalho em equipe</label>
+                    <div class="stars" id="stars-equipe" data-field="equipe"></div>
+                  </div>
+                  <div class="score-field">
+                    <label>Comunicação</label>
+                    <div class="stars" id="stars-comunicacao" data-field="comunicacao"></div>
+                  </div>
+                </div>
               </div>
-              <div class="field">
-                <label>Recomendação</label>
-                <select id="r-recomendacao"
-                  style="width:100%;background:var(--bg3);border:1px solid var(--border2);border-radius:3px;padding:10px 14px;color:var(--text);font-family:var(--font-mono);font-size:13px;outline:none;">
-                  <option value="promover">Recomendar promoção</option>
-                  <option value="manter">Manter na patente atual</option>
-                  <option value="advertir">Aplicar advertência</option>
-                  <option value="rebaixar">Recomendar rebaixamento</option>
-                </select>
+              <div class="report-group" style="margin-top:1.5rem">
+                <div class="report-group-title">Observações gerais</div>
+                <div class="field">
+                  <textarea id="r-obs" placeholder="Descreva pontos positivos, negativos e recomendações..." style="width:100%;background:var(--bg3);border:1px solid var(--border2);border-radius:3px;padding:10px 14px;color:var(--text);font-family:var(--font-mono);font-size:13px;outline:none;resize:vertical;min-height:90px;"></textarea>
+                </div>
+              </div>
+
+              <div class="report-group" style="margin-bottom:1.5rem">
+                <div class="report-group-title">Recomendação Final</div>
+                <div class="radio-card-group">
+                  <label>
+                    <input type="radio" name="r-recomendacao" value="promover" style="display:none">
+                    <div class="radio-card-label">
+                      <div class="rc-icon">⇪</div>
+                      <div class="rc-title">PROMOVER</div>
+                    </div>
+                  </label>
+                  <label>
+                    <input type="radio" name="r-recomendacao" value="manter" style="display:none" checked>
+                    <div class="radio-card-label">
+                      <div class="rc-icon">⏸</div>
+                      <div class="rc-title">MANTER</div>
+                    </div>
+                  </label>
+                  <label>
+                    <input type="radio" name="r-recomendacao" value="rebaixar" class="rc-reavaliar" style="display:none">
+                    <div class="radio-card-label">
+                      <div class="rc-icon">⚠</div>
+                      <div class="rc-title">REAVALIAR</div>
+                    </div>
+                  </label>
+                </div>
               </div>
               <button class="btn-primary" style="margin-top:1rem;font-size:16px;letter-spacing:2px"
                 onclick="submitReport()">ENVIAR RELATÓRIO</button>
@@ -3004,6 +3382,55 @@
     </div>
   </div>
 
+  <!-- PÁGINA DE DENÚNCIA (CORREGEDORIA) -->
+  <div id="page-denuncia" class="page">
+    <div class="recruit-page-header">
+      <h1>CORREGEDORIA — DENÚNCIA</h1>
+      <p>Preencha o formulário abaixo para registrar sua denúncia. Todas as informações serão analisadas pelo Comando da PM Legacy.</p>
+    </div>
+    <div class="recruit-page-form">
+      <div class="recruit-form" id="denuncia-form-card">
+        <h3>DADOS DA DENÚNCIA</h3>
+        <div id="denuncia-form-fields">
+          <div class="form-row">
+            <div class="field"><label>Nome do denunciante</label><input type="text" id="d-nome" placeholder="Seu nome (ou Anônimo)" /></div>
+            <div class="field"><label>Nick no servidor</label><input type="text" id="d-nick" placeholder="SeuNick" /></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label>Data do ocorrido</label><input type="date" id="d-data" /></div>
+            <div class="field"><label>Local do ocorrido</label><input type="text" id="d-local" placeholder="Ex: Centro, delegacia..." /></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label>Nome/Nick do policial denunciado</label><input type="text" id="d-policial" placeholder="Nome ou nick do policial" /></div>
+            <div class="field"><label>Patente do policial (se souber)</label><input type="text" id="d-patente" placeholder="Ex: Soldado, Cabo..." /></div>
+          </div>
+          <div class="field" style="margin-top:1rem"><label>Tipo de infração</label>
+            <select id="d-tipo" style="width:100%;background:var(--bg3);border:1px solid var(--border2);border-radius:3px;padding:10px 14px;color:var(--text);font-family:var(--font-mono);font-size:13px;outline:none;">
+              <option value="">Selecione o tipo...</option>
+              <option value="abuso_autoridade">Abuso de autoridade</option>
+              <option value="conduta_impropria">Conduta imprópria</option>
+              <option value="corrupcao">Corrupção</option>
+              <option value="violencia_excessiva">Violência excessiva</option>
+              <option value="negligencia">Negligência</option>
+              <option value="discriminacao">Discriminação</option>
+              <option value="outro">Outro</option>
+            </select>
+          </div>
+          <div class="field" style="margin-top:1rem"><label>Descrição detalhada do ocorrido</label><textarea id="d-descricao" placeholder="Descreva o que aconteceu com o máximo de detalhes possível..." style="min-height:120px"></textarea></div>
+          <div class="field"><label>Testemunhas (se houver)</label><input type="text" id="d-testemunhas" placeholder="Nomes ou nicks de testemunhas" /></div>
+          <div class="field"><label>Provas / Evidências</label><input type="text" id="d-provas" placeholder="Links de vídeos, screenshots, etc." /></div>
+          <button class="btn-primary" style="margin-top:1rem" onclick="submitDenuncia()">ENVIAR DENÚNCIA</button>
+        </div>
+        <div class="form-success" id="denuncia-form-success" style="display:none">
+          <p>✔ DENÚNCIA REGISTRADA COM SUCESSO<br><br>Sua denúncia foi enviada à Corregedoria.<br>A análise será feita pelo Comando da PM Legacy.<br><br>Obrigado pela colaboração.</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:1.5rem">
+        <button class="btn-secondary" onclick="backToPublic()" style="padding:10px 24px">← VOLTAR À PÁGINA INICIAL</button>
+      </div>
+    </div>
+  </div>
+
   <!-- PÁGINA DE RECRUTAMENTO (SEPARADA) -->
   <div id="page-recrutamento" class="page">
     <div class="recruit-page-header">
@@ -3012,31 +3439,78 @@
     </div>
     <div class="recruit-page-form">
       <div class="recruit-form" id="recruit-form-card">
-        <h3>DADOS DO CANDIDATO</h3>
-        <div id="recruit-form-fields">
-          <div class="form-row">
-            <div class="field"><label>Nome do personagem</label><input type="text" id="f-nome"
-                placeholder="Nome Sobrenome" /></div>
-            <div class="field"><label>Idade real</label><input type="number" id="f-idade" placeholder="Ex: 18" min="13"
-                max="60" /></div>
+        
+        <!-- PROGRESS BAR -->
+        <div class="ms-progress" id="ms-progress-bar">
+          <div class="ms-step-wrapper">
+            <div class="ms-step-dot active" id="ms-dot-1">1</div>
+            <div class="ms-step-label">Dados Básicos</div>
           </div>
-          <div class="form-row">
-            <div class="field"><label>Nick no servidor</label><input type="text" id="f-nick" placeholder="SeuNick" />
-            </div>
-            <div class="field"><label>Discord</label><input type="text" id="f-discord" placeholder="usuario#0000" />
-            </div>
+          <div class="ms-spacer"></div>
+          <div class="ms-step-wrapper">
+            <div class="ms-step-dot" id="ms-dot-2">2</div>
+            <div class="ms-step-label">Experiência</div>
           </div>
-          <div class="field" style="margin-top:1rem"><label>Experiência com roleplay</label><textarea id="f-exp"
-              placeholder="Descreva sua experiência com roleplay..."></textarea></div>
-          <div class="field"><label>Por que quer entrar na PM?</label><textarea id="f-motivo"
-              placeholder="Explique sua motivação..."></textarea></div>
-          <div class="field"><label>Disponibilidade de horário</label><input type="text" id="f-horario"
-              placeholder="Ex: Noite e fins de semana" /></div>
-          <button class="btn-primary" style="margin-top:1rem" onclick="submitCandidatura()">ENVIAR CANDIDATURA</button>
+          <div class="ms-spacer"></div>
+          <div class="ms-step-wrapper">
+            <div class="ms-step-dot" id="ms-dot-3">3</div>
+            <div class="ms-step-label">Compromisso</div>
+          </div>
         </div>
-        <div class="form-success" id="recruit-form-success" style="display:none">
-          <p>✔ CANDIDATURA ENVIADA COM SUCESSO<br><br>Sua ficha foi salva no sistema.<br>O Comando irá analisar e entrar
-            em contato.<br><br>Aguarde.</p>
+
+        <div id="recruit-form-fields">
+          <!-- ETAPA 1 -->
+          <div class="ms-step active" id="ms-step-1">
+            <div class="form-row">
+              <div class="field"><label>Nome in-game</label><input type="text" id="f-nome" placeholder="Seu Nick/Nome" /></div>
+              <div class="field"><label>ID do Discord</label><input type="text" id="f-discord" placeholder="usuario#0000" /></div>
+            </div>
+            <div class="form-row">
+              <div class="field"><label>Idade real</label><input type="number" id="f-idade" placeholder="Ex: 18" min="16" max="60" /></div>
+              <div class="field"><label>Horas de jogo</label><input type="number" id="f-horas-jogo" placeholder="Ex: 500" min="0" /></div>
+            </div>
+            <div class="ms-actions" style="justify-content:flex-end">
+              <button class="btn-primary" onclick="nextStep(1)">PRÓXIMO ➔</button>
+            </div>
+          </div>
+
+          <!-- ETAPA 2 -->
+          <div class="ms-step" id="ms-step-2">
+            <div class="field"><label>Já participou de outra corporação? Qual?</label><textarea id="f-outra-corp" placeholder="Se sim, detalhe qual e o motivo da saída..."></textarea></div>
+            <div class="field"><label>Por que deseja ingressar na corporação? E por que deveríamos aceitá-lo?</label><textarea id="f-motivo" placeholder="Explique sua motivação..."></textarea></div>
+            <div class="ms-actions">
+              <button class="btn-secondary" onclick="prevStep(2)">← VOLTAR</button>
+              <button class="btn-primary" onclick="nextStep(2)">PRÓXIMO ➔</button>
+            </div>
+          </div>
+
+          <!-- ETAPA 3 -->
+          <div class="ms-step" id="ms-step-3">
+            <div class="form-row">
+              <div class="field"><label>Horas disponíveis por dia</label><input type="text" id="f-horas-dia" placeholder="Ex: 4 horas/dia" /></div>
+              <div class="field"><label>Dias da semana disponíveis</label><input type="text" id="f-dias-semana" placeholder="Ex: Seg a Sex" /></div>
+            </div>
+            <div class="field" style="margin-top:1rem"><label>Está disposto a seguir hierarquia e regras rígidas?</label>
+              <select id="f-hierarquia">
+                <option value="Sim">Sim, estou ciente e concordo.</option>
+                <option value="Nao">Não concordo.</option>
+              </select>
+            </div>
+            <div class="checkbox-group">
+              <label class="checkbox-label"><input type="checkbox" id="f-check-regras"> Concordo com as regras da corporação.</label>
+              <label class="checkbox-label"><input type="checkbox" id="f-check-punicoes"> Estou ciente das punições em caso de infração.</label>
+            </div>
+            <div class="ms-actions">
+              <button class="btn-secondary" onclick="prevStep(3)">← VOLTAR</button>
+              <button class="btn-primary" onclick="submitCandidatura()">ENVIAR CANDIDATURA ✔</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-success" id="recruit-form-success" style="display:none;text-align:center">
+          <div style="font-size:48px;color:var(--gold);margin-bottom:1rem">✔</div>
+          <h3 style="font-family:var(--font-head);font-size:24px;letter-spacing:2px;color:var(--text);margin-bottom:1rem">CANDIDATURA ENVIADA</h3>
+          <p style="color:var(--text2);line-height:1.6">Sua ficha foi salva no sistema.<br>O Comando irá analisar e entrar em contato.<br>Aguarde o retorno pelo Discord.</p>
         </div>
       </div>
       <div style="text-align:center;margin-top:1.5rem">
@@ -3056,6 +3530,7 @@
       </div>
       <div style="display:flex;gap:2px;margin-bottom:2rem">
         <button class="report-tab active" id="eval-tab-pending" onclick="setEvalTab('pending',this)">Pendentes</button>
+        <button class="report-tab" id="eval-tab-candidaturas" onclick="setEvalTab('candidaturas',this)">Candidaturas</button>
         <button class="report-tab" id="eval-tab-history" onclick="setEvalTab('history',this)">Histórico</button>
       </div>
       <div id="eval-content">
@@ -3070,80 +3545,226 @@
       <div class="section-head">
         <h2>PAINEL ADMIN</h2>
         <div class="line"></div>
-        <span class="tag">// SOMENTE COMANDO</span>
+        <span class="tag">// SOMENTE COMANDO — CORONEL / TEN. CORONEL / MAJOR</span>
       </div>
-      <div style="margin-bottom:2rem">
-        <h3
-          style="font-family:var(--font-head);font-size:20px;letter-spacing:2px;color:var(--text2);margin-bottom:1rem">
-          USUÁRIOS AGUARDANDO APROVAÇÃO</h3>
-        <table class="pending-table">
-          <thead>
-            <tr>
-              <th>Usuário</th>
-              <th>Solicitado em</th>
-              <th>Ação</th>
-            </tr>
-          </thead>
-          <tbody id="pending-body"></tbody>
-        </table>
-        <div id="no-pending"
-          style="font-family:var(--font-mono);font-size:13px;color:var(--text3);padding:1.5rem 0;display:none">Nenhum
-          usuário aguardando aprovação.</div>
+      <div style="display:flex;gap:2px;margin-bottom:2rem;flex-wrap:wrap">
+        <button class="report-tab active" id="admin-tab-contas" onclick="setAdminTab('contas',this)">Contas Cadastradas</button>
+        <button class="report-tab" id="admin-tab-pending" onclick="setAdminTab('pending',this)">Solicitações</button>
+        <button class="report-tab" id="admin-tab-candidaturas" onclick="setAdminTab('candidaturas',this)">Candidaturas</button>
+        <button class="report-tab" id="admin-tab-criar" onclick="setAdminTab('criar',this)">Criar Usuário</button>
       </div>
-      <!-- CANDIDATURAS -->
-      <div style="margin-bottom:2rem">
-        <h3
-          style="font-family:var(--font-head);font-size:20px;letter-spacing:2px;color:var(--text2);margin-bottom:1rem">
-          CANDIDATURAS DE RECRUTAMENTO</h3>
-        <div id="candidaturas-list">
-          <div class="loading-spinner">Carregando candidaturas...</div>
+      <div id="admin-panel-contas">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1.5rem;flex-wrap:wrap;gap:1rem">
+          <h3 style="font-family:var(--font-head);font-size:20px;letter-spacing:2px;color:var(--text2);margin:0">CONTAS CADASTRADAS</h3>
+          <input type="text" id="admin-search" placeholder="Buscar por nome ou ID..." oninput="renderAccountsList()" style="background:var(--bg3);border:1px solid var(--border2);color:var(--text);font-family:var(--font-mono);font-size:12px;padding:8px 14px;border-radius:3px;width:260px" />
         </div>
-        <div id="no-candidaturas"
-          style="font-family:var(--font-mono);font-size:13px;color:var(--text3);padding:1.5rem 0;display:none">Nenhuma
-          candidatura pendente.</div>
+        <div id="admin-accounts-list"></div>
       </div>
-
-      <div style="margin-top:2rem">
-        <h3
-          style="font-family:var(--font-head);font-size:20px;letter-spacing:2px;color:var(--text2);margin-bottom:1rem">
-          CRIAR NOVO USUÁRIO</h3>
-        <div
-          style="background:var(--bg2);border:1px solid var(--border2);border-radius:4px;padding:1.5rem;max-width:500px">
+      <div id="admin-panel-pending" style="display:none">
+        <h3 style="font-family:var(--font-head);font-size:20px;letter-spacing:2px;color:var(--text2);margin-bottom:1rem">AGUARDANDO APROVAÇÃO</h3>
+        <table class="pending-table"><thead><tr><th>Usuário</th><th>Solicitado em</th><th>Ação</th></tr></thead><tbody id="pending-body"></tbody></table>
+        <div id="no-pending" style="font-family:var(--font-mono);font-size:13px;color:var(--text3);padding:1.5rem 0;display:none">Nenhum usuário aguardando aprovação.</div>
+      </div>
+      <div id="admin-panel-candidaturas" style="display:none">
+        <h3 style="font-family:var(--font-head);font-size:20px;letter-spacing:2px;color:var(--text2);margin-bottom:1rem">CANDIDATURAS DE RECRUTAMENTO</h3>
+        <div id="candidaturas-list"><div class="loading-spinner">Carregando candidaturas...</div></div>
+        <div id="no-candidaturas" style="font-family:var(--font-mono);font-size:13px;color:var(--text3);padding:1.5rem 0;display:none">Nenhuma candidatura pendente.</div>
+      </div>
+      <div id="admin-panel-criar" style="display:none">
+        <h3 style="font-family:var(--font-head);font-size:20px;letter-spacing:2px;color:var(--text2);margin-bottom:1rem">CRIAR NOVO USUÁRIO</h3>
+        <div style="background:var(--bg2);border:1px solid var(--border2);border-radius:4px;padding:1.5rem;max-width:500px">
           <div class="form-row">
-            <div class="field"><label>Usuário</label><input type="text" id="new-user" placeholder="nome.usuario" />
-            </div>
+            <div class="field"><label>Usuário</label><input type="text" id="new-user" placeholder="nome.usuario" /></div>
             <div class="field"><label>Senha</label><input type="password" id="new-pass" placeholder="senha" /></div>
           </div>
           <div class="form-row" style="margin-top:1rem">
             <div class="field"><label>Patente</label>
-              <select id="new-rank">
-                <option>Soldado</option>
-                <option>Cabo</option>
-                <option>3° Sargento</option>
-                <option>2° Sargento</option>
-                <option>1° Sargento</option>
-                <option>Subtenente</option>
-                <option>2° Tenente</option>
-                <option>1° Tenente</option>
-                <option>Capitão</option>
-                <option>Major</option>
-                <option>Tenente-Coronel</option>
-                <option>Coronel</option>
-              </select>
-            </div>
-            <div class="field"><label>Nível de acesso</label>
-              <select id="new-role">
-                <option value="membro">Membro</option>
-                <option value="admin">Admin / Comando</option>
-              </select>
+              <select id="new-rank"><option>Soldado</option><option>Cabo</option><option>3° Sargento</option><option>2° Sargento</option><option>1° Sargento</option><option>Subtenente</option><option>2° Tenente</option><option>1° Tenente</option><option>Capitão</option><option>Major</option><option>Tenente-Coronel</option><option>Coronel</option></select>
             </div>
           </div>
-          <button class="btn-primary" style="margin-top:1rem;font-size:15px;letter-spacing:2px"
-            onclick="createUser()">CRIAR USUÁRIO</button>
-          <div id="create-msg"
-            style="margin-top:0.75rem;font-family:var(--font-mono);font-size:12px;color:#81c784;display:none">Usuário
-            criado com sucesso!</div>
+          <button class="btn-primary" style="margin-top:1rem;font-size:15px;letter-spacing:2px" onclick="createUser()">CRIAR USUÁRIO</button>
+          <div id="create-msg" style="margin-top:0.75rem;font-family:var(--font-mono);font-size:12px;color:#81c784;display:none">Usuário criado com sucesso!</div>
         </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-overlay" id="edit-user-modal">
+    <div class="modal" style="max-width:450px">
+      <h3 style="font-family:var(--font-head);font-size:20px;letter-spacing:3px;color:var(--gold);margin-bottom:1.5rem">EDITAR USUÁRIO</h3>
+      <input type="hidden" id="edit-user-original" />
+      <div class="field" style="margin-bottom:1rem"><label>Nome / Nick</label><input type="text" id="edit-user-name" /></div>
+      <div class="field" style="margin-bottom:1rem"><label>Patente</label>
+        <select id="edit-user-rank"><option>Soldado</option><option>Cabo</option><option>3° Sargento</option><option>2° Sargento</option><option>1° Sargento</option><option>Subtenente</option><option>2° Tenente</option><option>1° Tenente</option><option>Capitão</option><option>Major</option><option>Tenente-Coronel</option><option>Coronel</option></select>
+      </div>
+      <div class="field" style="margin-bottom:1rem"><label>Status</label>
+        <select id="edit-user-status"><option value="ativo">Ativo</option><option value="inativo">Inativo</option><option value="ferias">De férias</option></select>
+      </div>
+      <div class="modal-actions" style="margin-top:1.5rem">
+        <button class="btn-primary" onclick="saveEditUser()">SALVAR</button>
+        <button class="btn-secondary" onclick="closeEditUserModal()">CANCELAR</button>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <!-- PÁGINA CORREGEDORIA (LOGADA) -->
+  <div id="page-corregedoria" class="page">
+    <div class="section">
+      <div class="section-head">
+        <h2>CORREGEDORIA</h2>
+        <div class="line"></div>
+        <span class="tag">// DENÚNCIAS E APURAÇÕES</span>
+      </div>
+      <div style="display:flex;gap:2px;margin-bottom:2rem">
+        <button class="report-tab active" id="correg-tab-pending" onclick="setCorregTab('pendente',this)">Pendentes</button>
+        <button class="report-tab" id="correg-tab-analise" onclick="setCorregTab('em_analise',this)">Em Análise</button>
+        <button class="report-tab" id="correg-tab-concluida" onclick="setCorregTab('concluida',this)">Concluídas</button>
+        <button class="report-tab" id="correg-tab-arquivada" onclick="setCorregTab('arquivada',this)">Arquivadas</button>
+      </div>
+      <div id="corregedoria-content">
+        <div class="loading-spinner">Carregando denúncias...</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PÁGINA DE CURSOS -->
+  <div id="page-cursos" class="page">
+    <div class="section">
+      <div class="section-head">
+        <h2>CURSOS</h2>
+        <div class="line"></div>
+        <span class="tag">// FORMAÇÃO POLICIAL</span>
+      </div>
+      <div class="cursos-placeholder">
+        <div class="cursos-placeholder-icon">📚</div>
+        <h3>EM BREVE</h3>
+        <p>Os cursos de formação da PM Legacy estão em desenvolvimento.<br><br>Em breve você poderá acessar treinamentos, certificados e avançar na sua carreira policial.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PÁGINA MEU PERFIL -->
+  <div id="page-perfil" class="page">
+    <div class="perfil-container">
+      <div style="margin-bottom: 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--border);">
+        <div style="font-family: var(--font-mono); font-size: 13px; letter-spacing: 3px; color: var(--text); text-transform: uppercase;">BEM-VINDO DE VOLTA,</div>
+        <div style="font-family: var(--font-head); font-size: 56px; color: var(--gold); letter-spacing: 2px; margin: 0.25rem 0 1.5rem; line-height: 1;"><span id="welcome-patente-top" style="text-transform: uppercase;">--</span>.</div>
+        <div style="font-size: 15px; color: var(--text3); font-style: italic; letter-spacing: 1px;">"Disciplina, honra e dedicação. Esse é o nosso compromisso."</div>
+      </div>
+      <div class="dashboard-grid">
+        <!-- ÁREA PRINCIPAL -->
+        <div>
+          <!-- RESUMO TOPO -->
+          <div class="dash-summary">
+            <div class="dash-card">
+              <div class="dash-title">Tempo de Serviço</div>
+              <div class="dash-value" id="dash-tempo">0<span>dias</span></div>
+            </div>
+          </div>
+
+          <!-- COMUNICADOS -->
+          <div style="margin-bottom:2rem">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem">
+              <h3 style="font-family:var(--font-head);font-size:18px;letter-spacing:2px;color:var(--text2)">COMUNICADOS RECENTES</h3>
+              <button class="btn-primary" id="btn-gerenciar-comunicados" onclick="openComunicadoModal()" title="Adicionar Comunicado" style="font-size:16px;padding:0;width:28px;height:28px;display:none;border-radius:4px;line-height:26px;text-align:center;">+</button>
+            </div>
+            <div class="comunicado-list" id="comunicados-list" style="min-height: 800px;">
+              <div style="font-family:var(--font-mono);font-size:12px;color:var(--text3);padding:1rem;background:var(--bg2);border:1px solid var(--border2);border-radius:4px">Nenhum comunicado no momento.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BARRA LATERAL -->
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+          <div class="dash-card patente-card" style="margin-bottom: 0;">
+            <div class="patente-icon" id="patente-icon">⭐</div>
+            <div class="patente-name" id="patente-name">--</div>
+            <div class="patente-nick" id="patente-nick">--</div>
+            
+            <div class="patente-details">
+              <div class="patente-detail-item">
+                <div class="patente-detail-label">NÍVEL DE ACESSO</div>
+                <div class="patente-detail-value" id="patente-acesso">--</div>
+              </div>
+              <div class="patente-detail-item">
+                <div class="patente-detail-label">STATUS</div>
+                <div class="patente-detail-value">
+                  <span class="status-dot status-on" id="patente-status-dot"></span><span id="patente-status">--</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 2px; color: var(--gold); margin-bottom: 0.5rem;">ADVERTÊNCIAS</div>
+            <div style="font-size: 13px; color: var(--text3);">Nenhuma registrada.</div>
+          </div>
+
+          <div class="dash-card">
+            <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 2px; color: var(--gold); margin-bottom: 0.5rem;">CURSOS</div>
+            <div style="font-size: 13px; color: var(--text3);">Nenhum curso concluído.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMUNICADOS MODAL -->
+  <div class="modal-overlay" id="comunicados-modal">
+    <div class="modal" style="max-width:500px">
+      <h3 style="font-family:var(--font-head);font-size:20px;letter-spacing:3px;color:var(--gold);margin-bottom:1.5rem">GERENCIAR COMUNICADOS</h3>
+      <style>
+        .icon-box { font-size: 24px; padding: 0.5rem 1rem; border: 1px solid var(--border2); border-radius: 6px; background: var(--bg2); cursor: pointer; transition: 0.2s; text-align: center; }
+        .icon-box:hover { border-color: var(--border); }
+        input[name="com-icon"]:checked + .icon-box { border-color: var(--gold); background: rgba(255, 215, 0, 0.1); }
+      </style>
+      <div class="field" style="margin-bottom:1rem">
+        <label>Ícone do Comunicado</label>
+        <div style="display:flex;gap:1rem;margin-top:0.5rem">
+          <label class="icon-option">
+            <input type="radio" name="com-icon" value="megaphone" checked style="display:none">
+            <div class="icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+            </div>
+          </label>
+          <label class="icon-option">
+            <input type="radio" name="com-icon" value="alert" style="display:none">
+            <div class="icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+            </div>
+          </label>
+          <label class="icon-option">
+            <input type="radio" name="com-icon" value="info" style="display:none">
+            <div class="icon-box">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
+            </div>
+          </label>
+        </div>
+      </div>
+      <div class="field" style="margin-bottom:1rem">
+        <label>Título do Comunicado</label>
+        <input type="text" id="com-titulo" placeholder="Ex: Nova Diretriz de Patrulhamento" />
+      </div>
+      <div class="field" style="margin-bottom:1rem">
+        <label>Conteúdo</label>
+        <textarea id="com-conteudo" placeholder="Escreva o comunicado aqui..." rows="4"></textarea>
+      </div>
+      <div class="modal-actions" style="margin-top:1.5rem;display:flex;gap:1rem">
+        <button class="btn-primary" onclick="salvarComunicado()">PUBLICAR</button>
+        <button class="btn-secondary" onclick="closeComunicadoModal()">CANCELAR</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- DENUNCIA DETAIL MODAL -->
+  <div class="modal-overlay" id="denuncia-detail-modal">
+    <div class="modal denuncia-detail-modal" style="overflow-y:auto;max-height:90vh">
+      <div id="denuncia-detail-content"></div>
+      <div class="modal-actions" style="margin-top:1.5rem">
+        <button class="btn-secondary" onclick="closeDenunciaDetail()">FECHAR</button>
       </div>
     </div>
   </div>
@@ -3194,6 +3815,33 @@
     // ===================== DATA =====================
     const RANKS = ['Soldado', 'Cabo', '3° Sargento', '2° Sargento', '1° Sargento', 'Subtenente', '2° Tenente', '1° Tenente', 'Capitão', 'Major', 'Tenente-Coronel', 'Coronel'];
     const RANK_LEVEL = (r) => RANKS.indexOf(r);
+
+    const GOLD = "#d4af37";
+    const SILVER = "#e2e8f0";
+    const DARK = "#2a2d32";
+    const DARK_BORDER = "#111";
+
+    const bgPraca = `<path d="M10,10 L50,10 L50,50 L30,70 L10,50 Z" fill="${DARK}" stroke="${DARK_BORDER}" stroke-width="2"/>`;
+    const bgOficial = `<rect x="15" y="5" width="30" height="70" fill="${DARK}" stroke="${DARK_BORDER}" stroke-width="2"/>`;
+
+    const chevronSvg = (y) => `<path d="M 15 ${y + 10} L 30 ${y} L 45 ${y + 10}" fill="none" stroke="${GOLD}" stroke-width="6" stroke-linecap="square" stroke-linejoin="miter"/>`;
+    const star4Svg = (y) => `<path d="M 30 ${y} L 33 ${y+6} L 40 ${y+8} L 33 ${y+10} L 30 ${y+16} L 27 ${y+10} L 20 ${y+8} L 27 ${y+6} Z" fill="${SILVER}"/><circle cx="30" cy="${y+8}" r="2" fill="#c0392b"/>`;
+    const sunburstSvg = (y) => `<circle cx="30" cy="${y+8}" r="9" fill="${GOLD}"/><path d="M 30 ${y-2} L 33 ${y+6} L 41 ${y+8} L 33 ${y+10} L 30 ${y+18} L 27 ${y+10} L 19 ${y+8} L 27 ${y+6} Z" fill="#f1c40f"/><circle cx="30" cy="${y+8}" r="2" fill="#2980b9"/>`;
+
+    const RANK_INSIGNIAS = {
+      'Soldado': `<svg viewBox="0 0 60 80">${bgPraca}${chevronSvg(40)}</svg>`,
+      'Cabo': `<svg viewBox="0 0 60 80">${bgPraca}${chevronSvg(35)}${chevronSvg(45)}</svg>`,
+      '3° Sargento': `<svg viewBox="0 0 60 80">${bgPraca}${chevronSvg(30)}${chevronSvg(40)}${chevronSvg(50)}</svg>`,
+      '2° Sargento': `<svg viewBox="0 0 60 80">${bgPraca}${chevronSvg(25)}${chevronSvg(35)}${chevronSvg(45)}${chevronSvg(55)}</svg>`,
+      '1° Sargento': `<svg viewBox="0 0 60 80">${bgPraca}${chevronSvg(20)}${chevronSvg(30)}${chevronSvg(40)}${chevronSvg(50)}${chevronSvg(60)}</svg>`,
+      'Subtenente': `<svg viewBox="0 0 60 80">${bgOficial}<path d="M 30 30 L 40 45 L 20 45 Z" fill="none" stroke="${GOLD}" stroke-width="3"/></svg>`,
+      '2° Tenente': `<svg viewBox="0 0 60 80">${bgOficial}${star4Svg(32)}</svg>`,
+      '1° Tenente': `<svg viewBox="0 0 60 80">${bgOficial}${star4Svg(25)}${star4Svg(45)}</svg>`,
+      'Capitão': `<svg viewBox="0 0 60 80">${bgOficial}${star4Svg(15)}${star4Svg(35)}${star4Svg(55)}</svg>`,
+      'Major': `<svg viewBox="0 0 60 80">${bgOficial}${sunburstSvg(32)}</svg>`,
+      'Tenente-Coronel': `<svg viewBox="0 0 60 80">${bgOficial}${sunburstSvg(25)}${sunburstSvg(45)}</svg>`,
+      'Coronel': `<svg viewBox="0 0 60 80">${bgOficial}${sunburstSvg(15)}${sunburstSvg(35)}${sunburstSvg(55)}</svg>`
+    };
 
     function getData(k, def) { try { return JSON.parse(localStorage.getItem(k)) ?? def; } catch (e) { return def; } }
     function setData(k, v) { localStorage.setItem(k, JSON.stringify(v)); }
@@ -3275,25 +3923,42 @@
       if (!found) { err.style.display = 'block'; return; }
 
       currentUser = found;
-      document.getElementById('nav-username').textContent = found.user;
-      document.getElementById('nav-rank').textContent = found.rank;
       document.getElementById('navbar').style.display = '';
-      if (found.role === 'admin') {
+      // Admin tab: Coronel, Tenente-Coronel, Major only
+      const adminRanks = ['Coronel', 'Tenente-Coronel', 'Major'];
+      if (adminRanks.includes(found.rank)) {
         document.querySelectorAll('.admin-only').forEach(el => el.style.display = '');
-        document.getElementById('admin-add-btn').style.display = '';
         document.getElementById('actions-col').style.display = '';
       }
-      if (canReport(found.rank) || found.role === 'admin') {
+      // Adicionar policial: Capitão+ only
+      if (RANK_LEVEL(found.rank) >= RANK_LEVEL('Capitão')) {
+        document.getElementById('admin-add-btn').style.display = '';
+      }
+      if (canReport(found.rank) || ['Coronel','Tenente-Coronel','Major'].includes(found.rank)) {
         document.getElementById('nav-reports').style.display = '';
         document.getElementById('home-card-reports').style.display = '';
+        const sr = document.getElementById('sidebar-reports');
+        if (sr) sr.style.display = '';
       }
-      if (canEval(found.rank) || found.role === 'admin') {
+      if (canEval(found.rank) || ['Coronel','Tenente-Coronel','Major'].includes(found.rank)) {
         document.getElementById('nav-evals').style.display = '';
         document.getElementById('home-card-evals').style.display = '';
+        const se = document.getElementById('sidebar-evals');
+        if (se) se.style.display = '';
+      }
+      // Corregedoria: visível apenas para Capitão+ ou admin
+      if (canViewCorregedoria(found.rank) || ['Coronel','Tenente-Coronel','Major'].includes(found.rank)) {
+        const nc = document.getElementById('nav-corregedoria');
+        if (nc) nc.style.display = '';
+        const sc = document.getElementById('sidebar-corregedoria');
+        if (sc) sc.style.display = '';
+      } else {
+        const nc = document.getElementById('nav-corregedoria');
+        if (nc) nc.style.display = 'none';
       }
       closeAuthModal();
       document.getElementById('page-public').classList.remove('active');
-      showPage('home');
+      showPage('perfil');
       updateStats();
     }
 
@@ -3329,6 +3994,17 @@
       document.getElementById('home-card-reports').style.display = 'none';
       document.getElementById('nav-evals').style.display = 'none';
       document.getElementById('home-card-evals').style.display = 'none';
+      const nc = document.getElementById('nav-corregedoria');
+      if (nc) nc.style.display = 'none';
+      const sr = document.getElementById('sidebar-reports');
+      if (sr) sr.style.display = 'none';
+      const se = document.getElementById('sidebar-evals');
+      if (se) se.style.display = 'none';
+      const sc = document.getElementById('sidebar-corregedoria');
+      if (sc) sc.style.display = 'none';
+      document.getElementById('admin-add-btn').style.display = 'none';
+      document.getElementById('actions-col').style.display = 'none';
+      document.querySelectorAll('.admin-only').forEach(el => el.style.display = 'none');
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.getElementById('page-public').classList.add('active');
       document.getElementById('login-user').value = '';
@@ -3349,13 +4025,20 @@
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.getElementById('page-' + id).classList.add('active');
       document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
-      const map = { home: 0, ranking: 1, rules: 2, reports: 3, avaliacoes: 4, admin: 5 };
+      const map = { perfil: 0, ranking: 1, rules: 2, reports: 3, avaliacoes: 4, corregedoria: 5, cursos: 6, admin: 7 };
       const links = document.querySelectorAll('.nav-link');
-      if (links[map[id]]) links[map[id]].classList.add('active');
+      if (links[map[id]] !== undefined) links[map[id]]?.classList.add('active');
+      // Update sidebar active state
+      document.querySelectorAll('.sidebar-link').forEach(l => l.classList.remove('active'));
+      const sidebarMap = { home: 0, ranking: 1, rules: 2, reports: 3, avaliacoes: 4, corregedoria: 5, cursos: 6, perfil: 7, admin: 8 };
+      const sidebarLinks = document.querySelectorAll('.sidebar-link');
+      if (sidebarLinks[sidebarMap[id]] !== undefined) sidebarLinks[sidebarMap[id]]?.classList.add('active');
       if (id === 'ranking') renderRanking('all');
-      if (id === 'admin') { renderAdmin(); renderCandidaturas(); }
+      if (id === 'admin') { renderAccountsList(); renderAdmin(); renderCandidaturas(); }
       if (id === 'reports') initReportsPage();
       if (id === 'avaliacoes') initEvalsPage();
+      if (id === 'corregedoria') initCorregedoriaPage();
+      if (id === 'perfil') initPerfilPage();
       window.scrollTo(0, 0);
     }
 
@@ -3389,12 +4072,15 @@
         });
       }
       const body = document.getElementById('rank-body');
-      const isAdmin = currentUser && currentUser.role === 'admin';
+      const isAdmin = currentUser && ['Coronel','Tenente-Coronel','Major'].includes(currentUser.rank);
+      const canAdd = currentUser && RANK_LEVEL(currentUser.rank) >= RANK_LEVEL('Capitão');
+      document.getElementById('admin-add-btn').style.display = canAdd ? '' : 'none';
+      document.getElementById('actions-col').style.display = isAdmin ? '' : 'none';
       body.innerHTML = officers.map((o, i) => `
     <tr>
       <td style="font-family:var(--font-mono);color:var(--text3);font-size:12px">${String(i + 1).padStart(2, '0')}</td>
       <td><div class="officer-name">${o.name}</div><div class="officer-id">#${String(o.id).padStart(4, '0')}</div></td>
-      <td><span class="rank-badge ${getRankClass(o.rank)}"><span class="rank-pip"></span>${o.rank}</span></td>
+      <td><div style="display:flex;align-items:center;gap:8px;"><div class="insignia-sm">${getRankIcon(o.rank)}</div><span class="rank-badge ${getRankClass(o.rank)}"><span class="rank-pip"></span>${o.rank}</span></div></td>
       <td><span class="status-dot ${o.status === 'ativo' ? 'status-on' : 'status-off'}"></span>${o.status === 'ativo' ? 'Ativo' : o.status === 'ferias' ? 'De férias' : 'Inativo'}</td>
       <td style="font-family:var(--font-mono);font-size:13px;color:var(--text3)">${o.since}</td>
       ${isAdmin ? `<td><button onclick="removeOfficer(${o.id})" style="background:none;border:1px solid rgba(192,57,43,0.3);color:#e57373;padding:4px 10px;border-radius:3px;font-family:var(--font-mono);font-size:11px;cursor:pointer">REMOVER</button></td>` : ''}
@@ -3460,12 +4146,12 @@
       'Coronel': ['Subtenente', '2° Tenente', '1° Tenente', 'Capitão', 'Major', 'Tenente-Coronel'],
     };
 
-    const SCORE_FIELDS = ['desempenho', 'presenca', 'conduta', 'equipe', 'tecnico', 'iniciativa'];
-    const SCORE_LABELS = { desempenho: 'Desempenho', presenca: 'Presença', conduta: 'Conduta', equipe: 'Equipe', tecnico: 'Técnico', iniciativa: 'Iniciativa' };
+    const SCORE_FIELDS = ['tecnico', 'iniciativa', 'conduta', 'presenca', 'equipe', 'comunicacao'];
+    const SCORE_LABELS = { tecnico: 'Técnico', iniciativa: 'Iniciativa', conduta: 'Conduta', presenca: 'Presença', equipe: 'Trabalho em equipe', comunicacao: 'Comunicação' };
     const RECOM_LABELS = { promover: 'Recomendar promoção', manter: 'Manter patente', advertir: 'Advertência', rebaixar: 'Recomendar rebaixamento' };
     const RECOM_COLORS = { promover: '#c9a84c', manter: '#81c784', advertir: '#ffb74d', rebaixar: '#e57373' };
 
-    let reportScores = { desempenho: 0, presenca: 0, conduta: 0, equipe: 0, tecnico: 0, iniciativa: 0 };
+    let reportScores = { tecnico: 0, iniciativa: 0, conduta: 0, presenca: 0, equipe: 0, comunicacao: 0 };
     let currentReportTab = 'all';
     let viewingReportId = null;
 
@@ -3477,9 +4163,17 @@
     }
 
     function getSubordinateRanks(rank, role) {
-      if (role === 'admin') return RANKS.slice(0, -1); // admin vê todos exceto Coronel
+      if (['Coronel','Tenente-Coronel','Major'].includes(rank)) return RANKS.slice(0, -1); // Major+ vê todos exceto Coronel
       return SUBORDINATE_MAP[rank] || [];
     }
+
+    const LEGEND_TEXT = {
+      1: 'Insatisfatório',
+      2: 'Abaixo do esperado',
+      3: 'Regular',
+      4: 'Bom',
+      5: 'Excelente'
+    };
 
     function initStars() {
       SCORE_FIELDS.forEach(field => {
@@ -3491,17 +4185,45 @@
           s.className = 'star';
           s.textContent = '★';
           s.dataset.val = i;
+          
+          s.onmouseenter = () => hoverStars(field, i);
+          s.onmouseleave = () => leaveStars(field);
           s.onclick = () => setStars(field, i);
+          
           container.appendChild(s);
         }
+        const legend = document.createElement('div');
+        legend.className = 'star-legend';
+        legend.id = 'legend-' + field;
+        legend.textContent = '-';
+        container.appendChild(legend);
       });
-      reportScores = { desempenho: 0, presenca: 0, conduta: 0, equipe: 0, tecnico: 0, iniciativa: 0 };
+      reportScores = { tecnico: 0, iniciativa: 0, conduta: 0, presenca: 0, equipe: 0, comunicacao: 0 };
+    }
+
+    function hoverStars(field, val) {
+      const stars = document.querySelectorAll(`#stars-${field} .star`);
+      stars.forEach(s => s.classList.toggle('hovered', parseInt(s.dataset.val) <= val));
+      const legend = document.getElementById(`legend-${field}`);
+      if (legend) legend.textContent = `${val}/5 — ${LEGEND_TEXT[val]}`;
+    }
+
+    function leaveStars(field) {
+      const stars = document.querySelectorAll(`#stars-${field} .star`);
+      stars.forEach(s => s.classList.remove('hovered'));
+      const legend = document.getElementById(`legend-${field}`);
+      const val = reportScores[field];
+      if (legend) {
+        legend.textContent = val > 0 ? `${val}/5 — ${LEGEND_TEXT[val]}` : '-';
+      }
     }
 
     function setStars(field, val) {
       reportScores[field] = val;
       const stars = document.querySelectorAll(`#stars-${field} .star`);
       stars.forEach(s => s.classList.toggle('active', parseInt(s.dataset.val) <= val));
+      const legend = document.getElementById(`legend-${field}`);
+      if (legend) legend.textContent = `${val}/5 — ${LEGEND_TEXT[val]}`;
     }
 
     function starsDisplay(n) {
@@ -3525,7 +4247,7 @@
 
     function initReportsPage() {
       if (!currentUser) return;
-      const hasPerms = canReport(currentUser.rank) || currentUser.role === 'admin';
+      const hasPerms = canReport(currentUser.rank) || ['Coronel','Tenente-Coronel','Major'].includes(currentUser.rank);
       document.getElementById('reports-no-perms').style.display = hasPerms ? 'none' : '';
       document.getElementById('reports-content').style.display = hasPerms ? '' : 'none';
       if (!hasPerms) return;
@@ -3558,7 +4280,7 @@
         scores: { ...reportScores },
         avg: parseFloat(avg),
         obs: document.getElementById('r-obs').value.trim(),
-        recomendacao: document.getElementById('r-recomendacao').value,
+        recomendacao: document.querySelector('input[name="r-recomendacao"]:checked')?.value || 'manter',
         date: new Date().toLocaleDateString('pt-BR'),
         dateISO: new Date().toISOString()
       });
@@ -3568,7 +4290,8 @@
       initStars();
       document.getElementById('r-avaliado').value = '';
       document.getElementById('r-obs').value = '';
-      document.getElementById('r-recomendacao').value = 'manter';
+      const rManter = document.querySelector('input[name="r-recomendacao"][value="manter"]');
+      if (rManter) rManter.checked = true;
       const ok = document.getElementById('report-success');
       ok.style.display = 'block';
       setTimeout(() => ok.style.display = 'none', 3000);
@@ -3587,7 +4310,7 @@
       if (!container || !currentUser) return;
       let reports = getData('pm_reports', []);
       // membros só veem os próprios; admin vê todos
-      if (currentUser.role !== 'admin') {
+      if (!['Coronel','Tenente-Coronel','Major'].includes(currentUser.rank)) {
         reports = reports.filter(r => r.avaliadorUser === currentUser.user);
       }
       if (currentReportTab === 'mine') {
@@ -3600,12 +4323,17 @@
       container.innerHTML = reports.map(r => `
     <div class="report-card" onclick="openReportDetail(${r.id})">
       <div class="report-card-head">
-        <div>
-          <div class="report-card-title">${r.avaliadoName}</div>
-          <div style="font-family:var(--font-mono);font-size:11px;color:var(--text3);margin-top:2px">${r.avaliadoRank}</div>
+        <div style="display:flex; gap:10px; align-items:center;">
+          <div class="insignia-md">${getRankIcon(r.avaliadoRank)}</div>
+          <div>
+            <div class="report-card-title">${r.avaliadoName}</div>
+            <div style="font-family:var(--font-mono);font-size:11px;color:var(--text3);margin-top:2px">${r.avaliadoRank}</div>
+          </div>
         </div>
         <div class="report-card-meta">
-          por ${r.avaliadorUser}<br>
+          <div style="display:flex;align-items:center;gap:5px;justify-content:flex-end">
+             por ${r.avaliadorUser} <div class="insignia-sm">${getRankIcon(r.avaliadorRank)}</div>
+          </div>
           ${r.avaliadorRank}<br>
           ${r.date}
         </div>
@@ -3632,15 +4360,18 @@
       const r = reports.find(x => x.id === id);
       if (!r) return;
       viewingReportId = id;
-      const isAdmin = currentUser && currentUser.role === 'admin';
+      const isAdmin = currentUser && ['Coronel','Tenente-Coronel','Major'].includes(currentUser.rank);
       document.getElementById('btn-delete-report').style.display = isAdmin ? '' : 'none';
       document.getElementById('report-detail-content').innerHTML = `
     <h3 style="font-family:var(--font-head);font-size:22px;letter-spacing:3px;color:var(--gold);margin-bottom:0.25rem">RELATÓRIO DE DESEMPENHO</h3>
     <div style="font-family:var(--font-mono);font-size:11px;color:var(--text3);letter-spacing:1px;margin-bottom:1.5rem">${r.date} — por ${r.avaliadorUser} (${r.avaliadorRank})</div>
-    <div style="background:var(--bg3);border:1px solid var(--border);padding:1rem;border-radius:3px;margin-bottom:1.5rem">
-      <div style="font-family:var(--font-mono);font-size:10px;color:var(--text3);letter-spacing:2px;margin-bottom:4px">POLICIAL AVALIADO</div>
-      <div style="font-family:var(--font-head);font-size:22px;letter-spacing:2px">${r.avaliadoName}</div>
-      <div style="font-family:var(--font-mono);font-size:12px;color:var(--text2)">${r.avaliadoRank}</div>
+    <div style="background:var(--bg3);border:1px solid var(--border);padding:1rem;border-radius:3px;margin-bottom:1.5rem;display:flex;align-items:center;gap:15px">
+      <div class="insignia-md" style="width:45px;height:60px">${getRankIcon(r.avaliadoRank)}</div>
+      <div>
+        <div style="font-family:var(--font-mono);font-size:10px;color:var(--text3);letter-spacing:2px;margin-bottom:4px">POLICIAL AVALIADO</div>
+        <div style="font-family:var(--font-head);font-size:22px;letter-spacing:2px">${r.avaliadoName}</div>
+        <div style="font-family:var(--font-mono);font-size:12px;color:var(--text2)">${r.avaliadoRank}</div>
+      </div>
     </div>
     <div class="report-avg-badge">MÉDIA GERAL <span>${r.avg} / 5.0</span></div>
     <div class="detail-score-grid">
@@ -3657,7 +4388,7 @@
     </div>
     ${r.obs ? `
     <div>
-      <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:2px;color:var(--text3);margin-bottom:8px">OBSERVAÇÕES</div>
+      <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:2px;color:var(--text3);margin-bottom:8px;margin-top:1rem">OBSERVAÇÕES GERAIS</div>
       <div style="background:var(--bg3);border:1px solid var(--border);padding:1rem;border-radius:3px;font-size:14px;color:var(--text2);line-height:1.7">${r.obs}</div>
     </div>` : ''}
   `;
@@ -3687,6 +4418,20 @@
     function showRecrutamentoPage() {
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.getElementById('page-recrutamento').classList.add('active');
+      
+      // Reset steps
+      [1,2,3].forEach(i => {
+        const step = document.getElementById('ms-step-' + i);
+        const dot = document.getElementById('ms-dot-' + i);
+        if (step) step.classList.remove('active');
+        if (dot) { dot.classList.remove('active'); dot.classList.remove('completed'); }
+      });
+      document.getElementById('ms-step-1').classList.add('active');
+      document.getElementById('ms-dot-1').classList.add('active');
+      document.getElementById('ms-progress-bar').style.display = 'flex';
+      document.getElementById('recruit-form-fields').style.display = 'block';
+      document.getElementById('recruit-form-success').style.display = 'none';
+
       window.scrollTo(0, 0);
     }
     function backToPublic() {
@@ -3694,22 +4439,78 @@
       document.getElementById('page-public').classList.add('active');
       window.scrollTo(0, 0);
     }
+    function scrollToPubSection(id) {
+      document.querySelectorAll('.pub-sidebar .sidebar-link').forEach(l => l.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+      if (id === 'top') { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    function nextStep(current) {
+      if (current === 1) {
+        const nome = document.getElementById('f-nome').value.trim();
+        const discord = document.getElementById('f-discord').value.trim();
+        const idade = document.getElementById('f-idade').value.trim();
+        const horas = document.getElementById('f-horas-jogo').value.trim();
+        if (!nome || !discord || !idade || !horas) { alert('Preencha todos os campos obrigatórios.'); return; }
+        if (parseInt(idade) < 16) { alert('A idade mínima para ingressar é 16 anos.'); return; }
+      }
+      if (current === 2) {
+        const outra = document.getElementById('f-outra-corp').value.trim();
+        const motivo = document.getElementById('f-motivo').value.trim();
+        if (!outra || !motivo) { alert('Preencha todos os campos obrigatórios.'); return; }
+      }
+      document.getElementById('ms-step-' + current).classList.remove('active');
+      document.getElementById('ms-step-' + (current + 1)).classList.add('active');
+      document.getElementById('ms-dot-' + current).classList.remove('active');
+      document.getElementById('ms-dot-' + current).classList.add('completed');
+      document.getElementById('ms-dot-' + (current + 1)).classList.add('active');
+    }
+
+    function prevStep(current) {
+      document.getElementById('ms-step-' + current).classList.remove('active');
+      document.getElementById('ms-step-' + (current - 1)).classList.add('active');
+      document.getElementById('ms-dot-' + current).classList.remove('active');
+      document.getElementById('ms-dot-' + (current - 1)).classList.remove('completed');
+      document.getElementById('ms-dot-' + (current - 1)).classList.add('active');
+    }
+
     async function submitCandidatura() {
+      const horasDia = document.getElementById('f-horas-dia').value.trim();
+      const diasSemana = document.getElementById('f-dias-semana').value.trim();
+      const hierarquia = document.getElementById('f-hierarquia').value;
+      const chkRegras = document.getElementById('f-check-regras').checked;
+      const chkPunicoes = document.getElementById('f-check-punicoes').checked;
+      
+      if (!horasDia || !diasSemana) { alert('Preencha todos os campos obrigatórios.'); return; }
+      if (hierarquia !== 'Sim') { alert('Você deve estar disposto a seguir a hierarquia.'); return; }
+      if (!chkRegras || !chkPunicoes) { alert('Você deve concordar com as regras e punições para enviar a candidatura.'); return; }
+
       const nome = document.getElementById('f-nome').value.trim();
-      const nick = document.getElementById('f-nick').value.trim();
       const discord = document.getElementById('f-discord').value.trim();
       const idade = document.getElementById('f-idade').value.trim();
-      if (!nome || !nick || !discord || !idade) { alert('Preencha todos os campos obrigatórios.'); return; }
+      const horasJogo = document.getElementById('f-horas-jogo').value.trim();
+      const outraCorp = document.getElementById('f-outra-corp').value.trim();
+      const motivo = document.getElementById('f-motivo').value.trim();
+
+      // Montando os dados mapeados para manter compatibilidade com o Admin
+      const experienciaFormatada = `Horas de Jogo: ${horasJogo}h\nOutra corporação: ${outraCorp}`;
+      const horarioFormatado = `${horasDia} / ${diasSemana}\nHierarquia: Aceito`;
+
       try {
         await db.collection('candidaturas').add({
-          nome, nick, discord, idade: parseInt(idade),
-          experiencia: document.getElementById('f-exp').value.trim(),
-          motivo: document.getElementById('f-motivo').value.trim(),
-          horario: document.getElementById('f-horario').value.trim(),
+          nome: nome, 
+          nick: nome, // Salvando nick igual ao nome para não quebrar validações antigas
+          discord: discord, 
+          idade: parseInt(idade),
+          experiencia: experienciaFormatada,
+          motivo: motivo,
+          horario: horarioFormatado,
           status: 'pendente',
           data: new Date().toLocaleDateString('pt-BR'),
           dataISO: new Date().toISOString()
         });
+        document.getElementById('ms-progress-bar').style.display = 'none';
         document.getElementById('recruit-form-fields').style.display = 'none';
         document.getElementById('recruit-form-success').style.display = 'block';
       } catch (e) { console.error(e); alert('Erro ao enviar candidatura. Tente novamente.'); }
@@ -3735,9 +4536,9 @@
               </div>
               <div style="font-family:var(--font-mono);font-size:10px;color:var(--text3)">${c.data}</div>
             </div>
-            ${c.experiencia ? `<div style="font-size:13px;color:var(--text2);margin-bottom:0.5rem"><strong style="color:var(--text)">Experiência:</strong> ${c.experiencia}</div>` : ''}
-            ${c.motivo ? `<div style="font-size:13px;color:var(--text2);margin-bottom:0.5rem"><strong style="color:var(--text)">Motivação:</strong> ${c.motivo}</div>` : ''}
-            ${c.horario ? `<div style="font-size:13px;color:var(--text2);margin-bottom:0.75rem"><strong style="color:var(--text)">Horário:</strong> ${c.horario}</div>` : ''}
+            ${c.experiencia ? `<div style="font-size:13px;color:var(--text2);margin-bottom:0.5rem;white-space:pre-wrap;"><strong style="color:var(--text)">Experiência:</strong> ${c.experiencia}</div>` : ''}
+            ${c.motivo ? `<div style="font-size:13px;color:var(--text2);margin-bottom:0.5rem;white-space:pre-wrap;"><strong style="color:var(--text)">Motivação:</strong> ${c.motivo}</div>` : ''}
+            ${c.horario ? `<div style="font-size:13px;color:var(--text2);margin-bottom:0.75rem;white-space:pre-wrap;"><strong style="color:var(--text)">Horário:</strong> ${c.horario}</div>` : ''}
             <div style="display:flex;gap:8px">
               <button class="btn-approve" onclick="approveCandidatura('${doc.id}','${c.nome}')">APROVAR</button>
               <button class="btn-reject" onclick="rejectCandidatura('${doc.id}')">REJEITAR</button>
@@ -3782,7 +4583,7 @@
           scores: { ...reportScores },
           avg: parseFloat(avg),
           obs: document.getElementById('r-obs').value.trim(),
-          recomendacao: document.getElementById('r-recomendacao').value,
+          recomendacao: document.querySelector('input[name="r-recomendacao"]:checked')?.value || 'manter',
           date: new Date().toLocaleDateString('pt-BR'),
           dateISO: new Date().toISOString(),
           avaliacaoStatus: 'pendente'
@@ -3790,7 +4591,8 @@
         initStars();
         document.getElementById('r-avaliado').value = '';
         document.getElementById('r-obs').value = '';
-        document.getElementById('r-recomendacao').value = 'manter';
+        const rManterFirebase = document.querySelector('input[name="r-recomendacao"][value="manter"]');
+        if (rManterFirebase) rManterFirebase.checked = true;
         const ok = document.getElementById('report-success');
         ok.style.display = 'block';
         setTimeout(() => ok.style.display = 'none', 3000);
@@ -3803,7 +4605,7 @@
       if (!container || !currentUser) return;
       try {
         let query = db.collection('relatorios');
-        if (currentUser.role !== 'admin' || currentReportTab === 'mine') {
+        if (!['Coronel','Tenente-Coronel','Major'].includes(currentUser.rank) || currentReportTab === 'mine') {
           query = db.collection('relatorios').where('avaliadorUser', '==', currentUser.user);
         }
         const snap = await query.get();
@@ -3813,11 +4615,19 @@
           const r = doc.data();
           return `<div class="report-card" onclick="openReportDetailFirebase('${doc.id}')">
             <div class="report-card-head">
-              <div>
-                <div class="report-card-title">${r.avaliadoName}</div>
-                <div style="font-family:var(--font-mono);font-size:11px;color:var(--text3);margin-top:2px">${r.avaliadoRank}</div>
+              <div style="display:flex; gap:10px; align-items:center;">
+                <div class="insignia-md">${getRankIcon(r.avaliadoRank)}</div>
+                <div>
+                  <div class="report-card-title">${r.avaliadoName}</div>
+                  <div style="font-family:var(--font-mono);font-size:11px;color:var(--text3);margin-top:2px">${r.avaliadoRank}</div>
+                </div>
               </div>
-              <div class="report-card-meta">por ${r.avaliadorUser}<br>${r.avaliadorRank}<br>${r.date}</div>
+              <div class="report-card-meta">
+                <div style="display:flex;align-items:center;gap:5px;justify-content:flex-end">
+                   por ${r.avaliadorUser} <div class="insignia-sm">${getRankIcon(r.avaliadorRank)}</div>
+                </div>
+                ${r.avaliadorRank}<br>${r.date}
+              </div>
             </div>
             <div class="report-scores">
               ${SCORE_FIELDS.filter(f => r.scores[f] > 0).map(f => `<div class="report-score-pill"><span>${SCORE_LABELS[f]}</span><span class="score-stars-mini">${starsDisplay(r.scores[f])}</span></div>`).join('')}
@@ -3838,15 +4648,18 @@
         if (!doc.exists) return;
         const r = doc.data();
         viewingReportId = docId;
-        const isAdmin = currentUser && currentUser.role === 'admin';
+        const isAdmin = currentUser && ['Coronel','Tenente-Coronel','Major'].includes(currentUser.rank);
         document.getElementById('btn-delete-report').style.display = isAdmin ? '' : 'none';
         document.getElementById('report-detail-content').innerHTML = `
           <h3 style="font-family:var(--font-head);font-size:22px;letter-spacing:3px;color:var(--gold);margin-bottom:0.25rem">RELATÓRIO DE DESEMPENHO</h3>
           <div style="font-family:var(--font-mono);font-size:11px;color:var(--text3);letter-spacing:1px;margin-bottom:1.5rem">${r.date} — por ${r.avaliadorUser} (${r.avaliadorRank})</div>
-          <div style="background:var(--bg3);border:1px solid var(--border);padding:1rem;border-radius:3px;margin-bottom:1.5rem">
-            <div style="font-family:var(--font-mono);font-size:10px;color:var(--text3);letter-spacing:2px;margin-bottom:4px">POLICIAL AVALIADO</div>
-            <div style="font-family:var(--font-head);font-size:22px;letter-spacing:2px">${r.avaliadoName}</div>
-            <div style="font-family:var(--font-mono);font-size:12px;color:var(--text2)">${r.avaliadoRank}</div>
+          <div style="background:var(--bg3);border:1px solid var(--border);padding:1rem;border-radius:3px;margin-bottom:1.5rem;display:flex;align-items:center;gap:15px">
+            <div class="insignia-md" style="width:45px;height:60px">${getRankIcon(r.avaliadoRank)}</div>
+            <div>
+              <div style="font-family:var(--font-mono);font-size:10px;color:var(--text3);letter-spacing:2px;margin-bottom:4px">POLICIAL AVALIADO</div>
+              <div style="font-family:var(--font-head);font-size:22px;letter-spacing:2px">${r.avaliadoName}</div>
+              <div style="font-family:var(--font-mono);font-size:12px;color:var(--text2)">${r.avaliadoRank}</div>
+            </div>
           </div>
           <div class="report-avg-badge">MÉDIA GERAL <span>${r.avg} / 5.0</span></div>
           <div class="detail-score-grid">
@@ -3856,7 +4669,7 @@
             <div style="font-family:var(--font-mono);font-size:10px;letter-spacing:2px;color:var(--text3);margin-bottom:8px">RECOMENDAÇÃO</div>
             <span style="font-family:var(--font-mono);font-size:13px;color:${RECOM_COLORS[r.recomendacao]};border:1px solid ${RECOM_COLORS[r.recomendacao]}44;padding:5px 14px;border-radius:3px;">${RECOM_LABELS[r.recomendacao]}</span>
           </div>
-          ${r.obs ? `<div><div style="font-family:var(--font-mono);font-size:10px;letter-spacing:2px;color:var(--text3);margin-bottom:8px">OBSERVAÇÕES</div><div style="background:var(--bg3);border:1px solid var(--border);padding:1rem;border-radius:3px;font-size:14px;color:var(--text2);line-height:1.7">${r.obs}</div></div>` : ''}`;
+          ${r.obs ? `<div><div style="font-family:var(--font-mono);font-size:10px;letter-spacing:2px;color:var(--text3);margin-bottom:8px;margin-top:1rem">OBSERVAÇÕES GERAIS</div><div style="background:var(--bg3);border:1px solid var(--border);padding:1rem;border-radius:3px;font-size:14px;color:var(--text2);line-height:1.7">${r.obs}</div></div>` : ''}`;
         document.getElementById('report-detail-modal').classList.add('open');
       } catch (e) { console.error(e); }
     }
@@ -3892,6 +4705,40 @@
       const container = document.getElementById('eval-content');
       if (!container || !currentUser) return;
       container.innerHTML = '<div class="loading-spinner">Carregando...</div>';
+
+      // Tab candidaturas
+      if (currentEvalTab === 'candidaturas') {
+        try {
+          const snap = await db.collection('candidaturas').where('status', '==', 'pendente').get();
+          const docs = snap.docs.sort((a, b) => (b.data().dataISO || '').localeCompare(a.data().dataISO || ''));
+          if (!docs.length) { container.innerHTML = '<div class="eval-empty">Nenhuma candidatura pendente.</div>'; return; }
+          container.innerHTML = '<div class="eval-grid">' + docs.map(doc => {
+            const c = doc.data();
+            return `<div class="eval-card">
+              <div class="eval-card-head">
+                <div>
+                  <div class="eval-card-name">${c.nome}</div>
+                  <div class="eval-card-rank">Nick: ${c.nick}</div>
+                </div>
+                <div style="text-align:right">
+                  <div style="font-family:var(--font-mono);font-size:10px;color:var(--text3)">${c.data}</div>
+                  <div style="font-family:var(--font-mono);font-size:10px;color:var(--text3)">Idade: ${c.idade}</div>
+                </div>
+              </div>
+              <div style="font-family:var(--font-mono);font-size:11px;color:var(--text2);margin:0.5rem 0">Discord: ${c.discord}</div>
+              ${c.experiencia ? `<div style="font-size:12px;color:var(--text3);margin:0.25rem 0"><strong style="color:var(--text2)">Exp:</strong> ${c.experiencia.slice(0,100)}${c.experiencia.length > 100 ? '...' : ''}</div>` : ''}
+              ${c.motivo ? `<div style="font-size:12px;color:var(--text3);margin:0.25rem 0"><strong style="color:var(--text2)">Motiva\u00e7\u00e3o:</strong> ${c.motivo.slice(0,100)}${c.motivo.length > 100 ? '...' : ''}</div>` : ''}
+              ${c.horario ? `<div style="font-size:12px;color:var(--text3);margin:0.25rem 0"><strong style="color:var(--text2)">Hor\u00e1rio:</strong> ${c.horario}</div>` : ''}
+              <div class="eval-actions">
+                <button class="btn-promote" onclick="approveCandidatura('${doc.id}','${c.nome}')">\u2713 APROVAR</button>
+                <button class="btn-deny" onclick="rejectCandidatura('${doc.id}')">&times; REJEITAR</button>
+              </div>
+            </div>`;
+          }).join('') + '</div>';
+        } catch (e) { console.error(e); container.innerHTML = '<div class="eval-empty">Erro ao carregar candidaturas.</div>'; }
+        return;
+      }
+
       try {
         const snap = await db.collection('relatorios').get();
         let docs;
@@ -3902,7 +4749,7 @@
         }
         docs.sort((a, b) => (b.data().dateISO || '').localeCompare(a.data().dateISO || ''));
         if (!docs.length) {
-          container.innerHTML = `<div class="eval-empty">${currentEvalTab === 'pending' ? 'Nenhuma avaliação pendente.' : 'Nenhuma decisão registrada.'}</div>`;
+          container.innerHTML = `<div class="eval-empty">${currentEvalTab === 'pending' ? 'Nenhuma avalia\u00e7\u00e3o pendente.' : 'Nenhuma decis\u00e3o registrada.'}</div>`;
           return;
         }
         container.innerHTML = '<div class="eval-grid">' + docs.map(doc => {
@@ -3919,15 +4766,15 @@
                 <div style="font-family:var(--font-mono);font-size:10px;color:var(--text3)">por ${r.avaliadorUser}</div>
               </div>
             </div>
-            <div class="eval-card-avg">Média: ${r.avg} / 5.0</div>
+            <div class="eval-card-avg">M\u00e9dia: ${r.avg} / 5.0</div>
             <div class="report-scores" style="margin-bottom:0.5rem">
               ${SCORE_FIELDS.filter(f => r.scores[f] > 0).map(f => `<div class="report-score-pill"><span>${SCORE_LABELS[f]}</span><span class="score-stars-mini">${starsDisplay(r.scores[f])}</span></div>`).join('')}
             </div>
             ${r.obs ? `<div style="font-size:12px;color:var(--text3);font-style:italic;margin:0.5rem 0">"${r.obs.slice(0, 80)}${r.obs.length > 80 ? '...' : ''}"</div>` : ''}
             ${isPending ? `<div class="eval-actions">
-              <button class="btn-promote" onclick="aprovarPromocao('${doc.id}','${r.avaliadoName}','${r.avaliadoRank}',${r.avaliadoId})">✓ PROMOVER</button>
-              <button class="btn-deny" onclick="rejeitarPromocao('${doc.id}')">✕ MANTER</button>
-            </div>` : `<span class="eval-status-badge ${r.avaliacaoStatus}">${r.avaliacaoStatus === 'aprovado' ? '✓ PROMOVIDO' : '✕ MANTIDO'}</span>`}
+              <button class="btn-promote" onclick="aprovarPromocao('${doc.id}','${r.avaliadoName}','${r.avaliadoRank}',${r.avaliadoId})">\u2713 PROMOVER</button>
+              <button class="btn-deny" onclick="rejeitarPromocao('${doc.id}')">&times; MANTER</button>
+            </div>` : `<span class="eval-status-badge ${r.avaliacaoStatus}">${r.avaliacaoStatus === 'aprovado' ? '\u2713 PROMOVIDO' : '\u2715 MANTIDO'}</span>`}
           </div>`;
         }).join('') + '</div>';
       } catch (e) { console.error(e); container.innerHTML = '<div class="eval-empty">Erro ao carregar. Verifique o console.</div>'; }
@@ -3991,6 +4838,103 @@
   `).join('');
     }
 
+    function setAdminTab(tab, btn) {
+      document.querySelectorAll('#page-admin .report-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      ['contas','pending','candidaturas','criar'].forEach(p => {
+        const el = document.getElementById('admin-panel-' + p);
+        if (el) el.style.display = (p === tab) ? '' : 'none';
+      });
+      if (tab === 'contas') renderAccountsList();
+      if (tab === 'pending') renderAdmin();
+      if (tab === 'candidaturas') renderCandidaturas();
+    }
+
+    function renderAccountsList() {
+      const container = document.getElementById('admin-accounts-list');
+      if (!container) return;
+      const users = getData('pm_users', []);
+      const officers = getData('pm_officers', []);
+      const search = (document.getElementById('admin-search')?.value || '').toLowerCase();
+      const merged = users.map(u => {
+        const officer = officers.find(o => o.name.toLowerCase().includes(u.user.toLowerCase()) || (u.nick && o.name.toLowerCase().includes(u.nick.toLowerCase())));
+        return {
+          user: u.user,
+          nick: u.nick || (officer ? officer.name : u.user),
+          rank: u.rank || (officer ? officer.rank : 'Soldado'),
+          status: officer ? officer.status : 'ativo',
+          officerId: officer ? officer.id : null,
+          acesso: ['Coronel','Tenente-Coronel','Major'].includes(u.rank) ? 'Comando' : 'Membro'
+        };
+      }).filter(u => !search || u.user.toLowerCase().includes(search) || u.nick.toLowerCase().includes(search) || (u.officerId && String(u.officerId).includes(search)));
+      if (!merged.length) {
+        container.innerHTML = '<div style="font-family:var(--font-mono);font-size:13px;color:var(--text3);padding:2rem 0;text-align:center">Nenhuma conta encontrada.</div>';
+        return;
+      }
+      container.innerHTML = '<table class="rank-table"><thead><tr><th>#</th><th>Usuario / Nick</th><th>Patente</th><th>Acesso</th><th>Status</th><th>Acoes</th></tr></thead><tbody>'
+        + merged.map((u, i) => {
+          const stDot = u.status === 'ativo' ? 'status-on' : 'status-off';
+          const stLabel = u.status === 'ativo' ? 'Ativo' : u.status === 'ferias' ? 'De ferias' : 'Inativo';
+          return '<tr>'
+            + '<td style="font-family:var(--font-mono);color:var(--text3);font-size:12px">' + String(i+1).padStart(2,'0') + '</td>'
+            + '<td><div class="officer-name">' + u.nick + '</div><div class="officer-id" style="font-family:var(--font-mono);font-size:10px;color:var(--text3)">@' + u.user + (u.officerId ? ' | #' + String(u.officerId).padStart(4,'0') : '') + '</div></td>'
+            + '<td><span class="rank-badge ' + getRankClass(u.rank) + '"><span class="rank-pip"></span>' + u.rank + '</span></td>'
+            + '<td style="font-family:var(--font-mono);font-size:12px;color:var(--text2)">' + u.acesso + '</td>'
+            + '<td><span class="status-dot ' + stDot + '"></span>' + stLabel + '</td>'
+            + '<td><div style="display:flex;gap:4px">'
+            + '<button onclick="openEditUser(\'' + u.user + '\')" style="background:none;border:1px solid rgba(201,168,76,0.3);color:var(--gold);padding:4px 10px;border-radius:3px;font-family:var(--font-mono);font-size:10px;cursor:pointer;letter-spacing:1px">EDITAR</button>'
+            + '<button onclick="removeUser(\'' + u.user + '\')" style="background:none;border:1px solid rgba(192,57,43,0.3);color:#e57373;padding:4px 10px;border-radius:3px;font-family:var(--font-mono);font-size:10px;cursor:pointer;letter-spacing:1px">REMOVER</button>'
+            + '</div></td></tr>';
+        }).join('') + '</tbody></table>';
+    }
+
+    function openEditUser(username) {
+      const users = getData('pm_users', []);
+      const officers = getData('pm_officers', []);
+      const u = users.find(x => x.user === username);
+      if (!u) return;
+      const officer = officers.find(o => o.name.toLowerCase().includes(u.user.toLowerCase()));
+      document.getElementById('edit-user-original').value = username;
+      document.getElementById('edit-user-name').value = officer ? officer.name : u.nick || u.user;
+      document.getElementById('edit-user-rank').value = u.rank;
+      document.getElementById('edit-user-status').value = officer ? officer.status : 'ativo';
+      document.getElementById('edit-user-modal').classList.add('open');
+    }
+
+    function saveEditUser() {
+      const username = document.getElementById('edit-user-original').value;
+      const newName = document.getElementById('edit-user-name').value.trim();
+      const newRank = document.getElementById('edit-user-rank').value;
+      const newStatus = document.getElementById('edit-user-status').value;
+      if (!newName) { alert('Nome nao pode estar vazio.'); return; }
+      const users = getData('pm_users', []);
+      const ui = users.findIndex(x => x.user === username);
+      if (ui >= 0) { users[ui].rank = newRank; setData('pm_users', users); }
+      const officers = getData('pm_officers', []);
+      const oi = officers.findIndex(o => o.name.toLowerCase().includes(username.toLowerCase()));
+      if (oi >= 0) { officers[oi].name = newName; officers[oi].rank = newRank; officers[oi].status = newStatus; setData('pm_officers', officers); }
+      closeEditUserModal();
+      renderAccountsList();
+      renderRanking(currentFilter || 'all');
+    }
+
+    function closeEditUserModal() {
+      document.getElementById('edit-user-modal').classList.remove('open');
+    }
+
+    function removeUser(username) {
+      if (username === 'admin') { alert('Nao e possivel remover a conta admin padrao.'); return; }
+      if (!confirm('Remover o usuario "' + username + '"? Esta acao e irreversivel.')) return;
+      let users = getData('pm_users', []);
+      users = users.filter(x => x.user !== username);
+      setData('pm_users', users);
+      let officers = getData('pm_officers', []);
+      officers = officers.filter(o => !o.name.toLowerCase().includes(username.toLowerCase()));
+      setData('pm_officers', officers);
+      renderAccountsList();
+      renderRanking(currentFilter || 'all');
+    }
+
     function approveUser(user) {
       let pending = getData('pm_pending', []);
       const u = pending.find(x => x.user === user);
@@ -4000,6 +4944,17 @@
       const users = getData('pm_users', []);
       users.push({ user: u.user, pass: u.pass, rank, role: 'membro' });
       setData('pm_users', users);
+      // Adicionar automaticamente ao efetivo (pm_officers)
+      const officers = getData('pm_officers', []);
+      const maxId = officers.length > 0 ? Math.max(...officers.map(o => o.id)) : 0;
+      officers.push({
+        id: maxId + 1,
+        name: u.nick || u.user,
+        rank: rank,
+        status: 'ativo',
+        since: new Date().toISOString().slice(0, 7)
+      });
+      setData('pm_officers', officers);
       setData('pm_pending', pending.filter(x => x.user !== user));
       renderAdmin();
     }
@@ -4012,16 +4967,347 @@
     function createUser() {
       const user = document.getElementById('new-user').value.trim();
       const pass = document.getElementById('new-pass').value.trim();
-      if (!user || !pass) { alert('Preencha usuário e senha.'); return; }
+      if (!user || !pass) { alert('Preencha usuario e senha.'); return; }
       const users = getData('pm_users', []);
-      if (users.find(u => u.user === user)) { alert('Usuário já existe.'); return; }
-      users.push({ user, pass, rank: document.getElementById('new-rank').value, role: document.getElementById('new-role').value });
+      if (users.find(u => u.user === user)) { alert('Usuario ja existe.'); return; }
+      const rank = document.getElementById('new-rank').value;
+      users.push({ user, pass, rank, role: 'membro' });
       setData('pm_users', users);
+      // Adicionar ao efetivo
+      const officers = getData('pm_officers', []);
+      const maxId = officers.length > 0 ? Math.max(...officers.map(o => o.id)) : 0;
+      officers.push({ id: maxId + 1, name: user, rank, status: 'ativo', since: new Date().toISOString().slice(0,7) });
+      setData('pm_officers', officers);
       document.getElementById('new-user').value = '';
       document.getElementById('new-pass').value = '';
       const msg = document.getElementById('create-msg');
       msg.style.display = 'block';
       setTimeout(() => msg.style.display = 'none', 3000);
+      renderAccountsList();
+    }
+
+    // ===================== CORREGEDORIA =====================
+    function canViewCorregedoria(rank) {
+      const level = RANK_LEVEL(rank);
+      return level >= RANK_LEVEL('Capit\u00e3o');
+    }
+
+    const TIPO_LABELS = {
+      abuso_autoridade: 'Abuso de autoridade',
+      conduta_impropria: 'Conduta impr\u00f3pria',
+      corrupcao: 'Corrup\u00e7\u00e3o',
+      violencia_excessiva: 'Viol\u00eancia excessiva',
+      negligencia: 'Neglig\u00eancia',
+      discriminacao: 'Discrimina\u00e7\u00e3o',
+      outro: 'Outro'
+    };
+
+    function showDenunciaPage() {
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      document.getElementById('page-denuncia').classList.add('active');
+      window.scrollTo(0, 0);
+    }
+
+    async function submitDenuncia() {
+      const nome = document.getElementById('d-nome').value.trim() || 'An\u00f4nimo';
+      const nick = document.getElementById('d-nick').value.trim();
+      const data = document.getElementById('d-data').value;
+      const local = document.getElementById('d-local').value.trim();
+      const policial = document.getElementById('d-policial').value.trim();
+      const tipo = document.getElementById('d-tipo').value;
+      const descricao = document.getElementById('d-descricao').value.trim();
+      if (!policial || !tipo || !descricao) { alert('Preencha o policial denunciado, tipo de infra\u00e7\u00e3o e descri\u00e7\u00e3o.'); return; }
+      try {
+        await db.collection('denuncias').add({
+          denunciante: nome,
+          denuncianteNick: nick,
+          dataOcorrido: data,
+          local: local,
+          policialDenunciado: policial,
+          patenteDenunciado: document.getElementById('d-patente').value.trim(),
+          tipo: tipo,
+          descricao: descricao,
+          testemunhas: document.getElementById('d-testemunhas').value.trim(),
+          provas: document.getElementById('d-provas').value.trim(),
+          status: 'pendente',
+          data: new Date().toLocaleDateString('pt-BR'),
+          dataISO: new Date().toISOString()
+        });
+        document.getElementById('denuncia-form-fields').style.display = 'none';
+        document.getElementById('denuncia-form-success').style.display = 'block';
+      } catch (e) { console.error(e); alert('Erro ao enviar. Tente novamente.'); }
+    }
+
+    let currentCorregTab = 'pendente';
+    function setCorregTab(tab, btn) {
+      currentCorregTab = tab;
+      document.querySelectorAll('#page-corregedoria .report-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      initCorregedoriaPage();
+    }
+
+    async function initCorregedoriaPage() {
+      const container = document.getElementById('corregedoria-content');
+      if (!container || !currentUser) return;
+      container.innerHTML = '<div class="loading-spinner">Carregando...</div>';
+      try {
+        const snap = await db.collection('denuncias').where('status', '==', currentCorregTab).get();
+        const docs = snap.docs.sort((a, b) => (b.data().dataISO || '').localeCompare(a.data().dataISO || ''));
+        if (!docs.length) {
+          const msgs = { pendente: 'Nenhuma denuncia pendente.', em_analise: 'Nenhuma denuncia em analise.', concluida: 'Nenhuma denuncia concluida.', arquivada: 'Nenhuma denuncia arquivada.' };
+          container.innerHTML = '<div class="eval-empty">' + (msgs[currentCorregTab] || 'Nenhuma denuncia.') + '</div>';
+          return;
+        }
+        const graveTipos = ['violencia_excessiva','corrupcao','abuso_autoridade'];
+        const mediaTipos = ['conduta_impropria','discriminacao'];
+        container.innerHTML = '<div class="corregedoria-grid">' + docs.map(doc => {
+          const d = doc.data();
+          const priority = graveTipos.includes(d.tipo) ? 'alta' : mediaTipos.includes(d.tipo) ? 'media' : 'baixa';
+          const prioLabel = priority === 'alta' ? 'PRIORIDADE ALTA' : priority === 'media' ? 'PRIORIDADE MEDIA' : 'PRIORIDADE BAIXA';
+          const stCls = d.status === 'pendente' ? 'status-pendente' : d.status === 'em_analise' ? 'status-em-analise' : d.status === 'arquivada' ? 'status-arquivada' : 'status-concluida';
+          const stLbl = d.status === 'pendente' ? '&#9203; PENDENTE' : d.status === 'em_analise' ? '&#128269; EM ANALISE' : d.status === 'arquivada' ? '&#128193; ARQUIVADA' : '&#9989; CONCLUIDA';
+          let actions = '';
+          if (d.status === 'pendente') {
+            actions = '<button class="dc-btn btn-analisar" onclick="event.stopPropagation();updateDenunciaStatus(\'' + doc.id + '\',\'em_analise\')">&#128269; ANALISAR</button>'
+              + '<button class="dc-btn btn-concluir" onclick="event.stopPropagation();updateDenunciaStatus(\'' + doc.id + '\',\'concluida\')">&#10003; CONCLUIR</button>'
+              + '<button class="dc-btn btn-arquivar" onclick="event.stopPropagation();updateDenunciaStatus(\'' + doc.id + '\',\'arquivada\')">&#128193; ARQUIVAR</button>';
+          } else if (d.status === 'em_analise') {
+            actions = '<button class="dc-btn btn-concluir" onclick="event.stopPropagation();updateDenunciaStatus(\'' + doc.id + '\',\'concluida\')">&#10003; CONCLUIR</button>'
+              + '<button class="dc-btn btn-punir" onclick="event.stopPropagation();updateDenunciaStatus(\'' + doc.id + '\',\'concluida\')">&#9888; PUNIR</button>'
+              + '<button class="dc-btn btn-arquivar" onclick="event.stopPropagation();updateDenunciaStatus(\'' + doc.id + '\',\'arquivada\')">&#128193; ARQUIVAR</button>';
+          }
+          return '<div class="denuncia-card priority-' + priority + '" onclick="openDenunciaDetail(\'' + doc.id + '\')">'
+            + '<div class="dc-header">'
+            + '<div class="dc-accused">'
+            + '<div class="dc-accused-name">VS. ' + d.policialDenunciado + '</div>'
+            + '<div class="dc-accused-rank">' + (d.patenteDenunciado || 'Patente nao informada') + '</div>'
+            + '</div>'
+            + '<div class="dc-badges">'
+            + '<span class="dc-badge ' + stCls + '">' + stLbl + '</span>'
+            + '<span class="dc-badge tipo-badge">&#9888; ' + (TIPO_LABELS[d.tipo] || d.tipo) + '</span>'
+            + '<span class="dc-badge priority-badge-' + priority + '">' + prioLabel + '</span>'
+            + '</div></div>'
+            + '<div class="dc-desc-box">'
+            + '<div class="dc-desc-title">DESCRICAO DA OCORRENCIA</div>'
+            + '<div class="dc-desc-text">' + d.descricao.slice(0,200) + (d.descricao.length > 200 ? '...' : '') + '</div>'
+            + '</div>'
+            + '<div class="dc-separator"></div>'
+            + '<div class="dc-footer">'
+            + '<div class="dc-meta">'
+            + '<div class="dc-meta-item"><span class="dc-meta-icon">&#128100;</span>' + d.denunciante + '</div>'
+            + '<div class="dc-meta-item"><span class="dc-meta-icon">&#128197;</span>' + d.data + '</div>'
+            + (d.local ? '<div class="dc-meta-item"><span class="dc-meta-icon">&#128205;</span>' + d.local + '</div>' : '')
+            + '</div>'
+            + '<div class="dc-actions">' + actions + '</div>'
+            + '</div></div>';
+        }).join('') + '</div>';
+      } catch (e) { console.error(e); container.innerHTML = '<div class="eval-empty">Erro ao carregar denuncias.</div>'; }
+    }
+
+    async function openDenunciaDetail(docId) {
+      try {
+        const docRef = await db.collection('denuncias').doc(docId).get();
+        if (!docRef.exists) return;
+        const d = docRef.data();
+        const graveTipos = ['violencia_excessiva','corrupcao','abuso_autoridade'];
+        const mediaTipos = ['conduta_impropria','discriminacao'];
+        const priority = graveTipos.includes(d.tipo) ? 'alta' : mediaTipos.includes(d.tipo) ? 'media' : 'baixa';
+        const prioLabel = priority === 'alta' ? '&#128308; PRIORIDADE ALTA' : priority === 'media' ? '&#128993; PRIORIDADE MEDIA' : '&#128994; PRIORIDADE BAIXA';
+        const stLabel = d.status === 'pendente' ? 'PENDENTE' : d.status === 'em_analise' ? 'EM ANALISE' : d.status === 'arquivada' ? 'ARQUIVADA' : 'CONCLUIDA';
+        document.getElementById('denuncia-detail-content').innerHTML =
+          '<h3 style="font-family:var(--font-head);font-size:22px;letter-spacing:3px;color:var(--gold);margin-bottom:0.25rem">FICHA DE DENUNCIA</h3>'
+          + '<div style="font-family:var(--font-mono);font-size:11px;color:var(--text3);letter-spacing:1px;margin-bottom:1.5rem">' + d.data + ' &#8212; Protocolo #' + docId.slice(0,8).toUpperCase() + '</div>'
+          + '<div style="background:var(--bg3);border:1px solid var(--border);padding:1rem;border-radius:3px;margin-bottom:1.5rem">'
+          + '<div style="font-family:var(--font-mono);font-size:10px;color:var(--text3);letter-spacing:2px;margin-bottom:4px">POLICIAL DENUNCIADO</div>'
+          + '<div style="font-family:var(--font-head);font-size:22px;letter-spacing:2px">' + d.policialDenunciado + '</div>'
+          + '<div style="font-family:var(--font-mono);font-size:12px;color:var(--text2)">' + (d.patenteDenunciado || 'Patente nao informada') + '</div>'
+          + '</div>'
+          + '<div class="dd-grid">'
+          + '<div class="dd-field"><div class="dd-label">STATUS</div><div class="dd-value">' + stLabel + '</div></div>'
+          + '<div class="dd-field"><div class="dd-label">PRIORIDADE</div><div class="dd-value">' + prioLabel + '</div></div>'
+          + '<div class="dd-field"><div class="dd-label">TIPO DE INFRACAO</div><div class="dd-value">&#9888; ' + (TIPO_LABELS[d.tipo] || d.tipo) + '</div></div>'
+          + '<div class="dd-field"><div class="dd-label">DATA DO OCORRIDO</div><div class="dd-value">' + (d.dataOcorrido || 'Nao informada') + '</div></div>'
+          + '<div class="dd-field"><div class="dd-label">DENUNCIANTE</div><div class="dd-value">&#128100; ' + d.denunciante + '</div></div>'
+          + '<div class="dd-field"><div class="dd-label">LOCAL</div><div class="dd-value">&#128205; ' + (d.local || 'Nao informado') + '</div></div>'
+          + '</div>'
+          + '<div class="dd-field" style="margin-top:0.5rem"><div class="dd-label">DESCRICAO DA OCORRENCIA</div>'
+          + '<div style="background:rgba(0,0,0,0.25);border:1px solid var(--border);border-radius:4px;padding:1rem;font-size:14px;color:var(--text2);line-height:1.7">' + d.descricao + '</div></div>'
+          + (d.testemunhas ? '<div class="dd-field"><div class="dd-label">TESTEMUNHAS</div><div class="dd-value">' + d.testemunhas + '</div></div>' : '')
+          + (d.provas ? '<div class="dd-field"><div class="dd-label">PROVAS / EVIDENCIAS</div><div class="dd-value">' + d.provas + '</div></div>' : '');
+        document.getElementById('denuncia-detail-modal').classList.add('open');
+      } catch (e) { console.error(e); }
+    }
+
+    function closeDenunciaDetail() {
+      document.getElementById('denuncia-detail-modal').classList.remove('open');
+    }
+
+    async function updateDenunciaStatus(docId, newStatus) {
+      const labels = { em_analise: 'em analise', concluida: 'concluida', arquivada: 'arquivada' };
+      if (!confirm('Alterar status da denuncia para "' + (labels[newStatus] || newStatus) + '"?')) return;
+      try {
+        await db.collection('denuncias').doc(docId).update({ status: newStatus });
+        initCorregedoriaPage();
+      } catch (e) { console.error(e); alert('Erro ao atualizar.'); }
+    }
+
+    // ===================== PERFIL E DASHBOARD =====================
+    function getRankIcon(rank) {
+      if (!rank) return '';
+      const r = rank.replace('º', '°'); // Normalizar
+      if (RANK_INSIGNIAS[r]) return RANK_INSIGNIAS[r];
+      // fallback manual caso a patente tenha espaço ou nome diferente
+      const low = r.toLowerCase();
+      if (low.includes('coronel') && low.includes('tenente')) return RANK_INSIGNIAS['Tenente-Coronel'];
+      if (low.includes('coronel')) return RANK_INSIGNIAS['Coronel'];
+      if (low.includes('major')) return RANK_INSIGNIAS['Major'];
+      if (low.includes('capitão') || low.includes('capitao')) return RANK_INSIGNIAS['Capitão'];
+      if (low.includes('tenente')) return RANK_INSIGNIAS['1° Tenente'];
+      if (low.includes('sargento')) return RANK_INSIGNIAS['1° Sargento'];
+      return RANK_INSIGNIAS['Soldado'];
+    }
+
+    async function initPerfilPage() {
+      if (!currentUser) return;
+      
+      const officers = getData('pm_officers', []);
+      const officer = officers.find(o => o.name.toLowerCase() === currentUser.user.toLowerCase() || o.user === currentUser.user);
+      
+      document.getElementById('patente-name').textContent = currentUser.rank;
+      document.getElementById('patente-nick').textContent = officer ? officer.name : currentUser.user;
+      document.getElementById('patente-icon').innerHTML = getRankIcon(currentUser.rank);
+      
+      const isComando = ['Coronel','Tenente-Coronel','Major'].includes(currentUser.rank);
+      document.getElementById('patente-acesso').textContent = isComando ? 'Comando / Admin' : 'Membro';
+      
+      // Update welcome header
+      let simpleRank = currentUser.rank;
+      const rankLower = simpleRank.toLowerCase();
+      if (rankLower.includes('sargento')) simpleRank = 'Sargento';
+      else if (rankLower === '1º tenente' || rankLower === '2º tenente') simpleRank = 'Tenente';
+      
+      document.getElementById('welcome-patente-top').textContent = simpleRank;
+      
+      const statusEl = document.getElementById('patente-status');
+      const statusDot = document.getElementById('patente-status-dot');
+      if (officer) {
+        statusEl.textContent = officer.status === 'ativo' ? 'Ativo' : officer.status === 'ferias' ? 'De férias' : 'Inativo';
+        statusDot.className = 'status-dot ' + (officer.status === 'ativo' ? 'status-on' : officer.status === 'ferias' ? 'status-vacation' : 'status-off');
+      } else {
+        statusEl.textContent = 'Ativo';
+        statusDot.className = 'status-dot status-on';
+      }
+
+      // Tempo de Serviço
+      let tempoText = '0';
+      if (officer && officer.since) {
+        // Since is typically YYYY-MM
+        const parts = officer.since.split('-');
+        if (parts.length >= 2) {
+          const entryDate = new Date(parts[0], parseInt(parts[1])-1, 1);
+          const diffTime = Math.abs(new Date() - entryDate);
+          const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+          tempoText = diffDays.toString();
+        }
+      }
+      document.getElementById('dash-tempo').innerHTML = tempoText + '<span>dias</span>';
+
+      // Comunicados setup
+      if (RANK_LEVEL(currentUser.rank) >= RANK_LEVEL('3° Sargento') || isComando) {
+        document.getElementById('btn-gerenciar-comunicados').style.display = 'block';
+      } else {
+        document.getElementById('btn-gerenciar-comunicados').style.display = 'none';
+      }
+
+      renderComunicados();
+    }
+
+    // ===================== COMUNICADOS =====================
+    async function renderComunicados() {
+      const list = document.getElementById('comunicados-list');
+      if (!list) return;
+      try {
+        const snap = await db.collection('comunicados').orderBy('dataISO', 'desc').limit(5).get();
+        const docs = snap.docs;
+        if (!docs.length) {
+          list.innerHTML = '<div style="font-family:var(--font-mono);font-size:12px;color:var(--text3);padding:1rem;background:var(--bg2);border:1px solid var(--border2);border-radius:4px">Nenhum comunicado no momento.</div>';
+          return;
+        }
+        
+        const isAdmin = ['Coronel','Tenente-Coronel','Major'].includes(currentUser.rank) || RANK_LEVEL(currentUser.rank) >= RANK_LEVEL('3° Sargento');
+
+        list.innerHTML = docs.map(doc => {
+          const c = doc.data();
+          const delBtn = isAdmin ? `<button onclick="deletarComunicado('${doc.id}')" style="background:none;border:none;color:var(--error);font-size:12px;cursor:pointer;margin-left:auto">EXCLUIR</button>` : '';
+          
+          let svgIcon = c.icone || '📢';
+          if (c.icone === 'megaphone') svgIcon = '<div style="background:var(--bg2); border:1px solid var(--border2); padding:0.5rem; border-radius:6px; display:flex; align-items:center; justify-content:center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg></div>';
+          else if (c.icone === 'alert') svgIcon = '<div style="background:var(--bg2); border:1px solid var(--border2); padding:0.5rem; border-radius:6px; display:flex; align-items:center; justify-content:center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fbbf24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path><line x1="12" y1="9" x2="12" y2="13"></line><line x1="12" y1="17" x2="12.01" y2="17"></line></svg></div>';
+          else if (c.icone === 'info') svgIcon = '<div style="background:var(--bg2); border:1px solid var(--border2); padding:0.5rem; border-radius:6px; display:flex; align-items:center; justify-content:center;"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg></div>';
+
+          return `<div class="comunicado-item">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:1rem;">
+              <div>${svgIcon}</div>
+              <div style="flex-grow:1;">
+                <div class="comunicado-title">${c.titulo}</div>
+                <div class="comunicado-meta">Por: ${c.autor} (${c.patente}) • ${c.data}</div>
+              </div>
+              ${delBtn}
+            </div>
+            <div class="comunicado-body" style="margin-top:0.5rem;">${c.conteudo}</div>
+          </div>`;
+        }).join('');
+      } catch(e) {
+        console.error(e);
+        list.innerHTML = '<div style="color:var(--text3);padding:1rem;">Erro ao carregar comunicados. Verifique se o Firebase está configurado.</div>';
+      }
+    }
+
+    function openComunicadoModal() {
+      document.getElementById('com-titulo').value = '';
+      document.getElementById('com-conteudo').value = '';
+      document.getElementById('comunicados-modal').classList.add('open');
+    }
+
+    function closeComunicadoModal() {
+      document.getElementById('comunicados-modal').classList.remove('open');
+    }
+
+    async function salvarComunicado() {
+      const titulo = document.getElementById('com-titulo').value.trim();
+      const conteudo = document.getElementById('com-conteudo').value.trim();
+      const icone = document.querySelector('input[name="com-icon"]:checked').value;
+      if (!titulo || !conteudo) {
+        alert('Preencha título e conteúdo!');
+        return;
+      }
+      try {
+        await db.collection('comunicados').add({
+          titulo: titulo,
+          conteudo: conteudo,
+          icone: icone,
+          autor: currentUser.user,
+          patente: currentUser.rank,
+          data: new Date().toLocaleDateString('pt-BR'),
+          dataISO: new Date().toISOString()
+        });
+        closeComunicadoModal();
+        renderComunicados();
+      } catch(e) {
+        console.error(e);
+        alert('Erro ao salvar comunicado.');
+      }
+    }
+
+    async function deletarComunicado(docId) {
+      if (!confirm('Deseja realmente excluir este comunicado?')) return;
+      try {
+        await db.collection('comunicados').doc(docId).delete();
+        renderComunicados();
+      } catch(e) {
+        console.error(e);
+        alert('Erro ao excluir comunicado.');
+      }
     }
   </script>
 </body>
